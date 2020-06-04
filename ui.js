@@ -7,6 +7,15 @@ $(document).ready(function() {
         } else {
             $('#entering-key').remove();
             console.log(key);
+            var values = {
+                numPlayers: 0,
+                player1: null,
+                player2: null,
+                player3: null,
+                player4: null
+            }
+            var pathRef = firebase.database().ref('games/' + key);
+            var newChildRef = pathRef.push(values);
         }
         event.preventDefault();
     });
