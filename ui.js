@@ -36,23 +36,7 @@ $(document).ready(function() {
             } else {
                 $('.error').remove();
                 // Check number of players
-                var playerCount;
-                var ref = firebase.database().ref('games/' + key + '/numPlayers');
-                ref.on("value", function(snapshot) {
-                  playerCount = snapshot.val();
-                  console.log(playerCount);
-                });
-                if (playerCount < 4) {
-                    $('.error').remove();
-                    var newPlayer = playerCount + 1;
-                    var playerKey = "player" + newPlayer;
-                    var pathRef = firebase.database().ref('games/' + key);
-                    var newChildRef = pathRef.set({
-                        playerKey: user
-                    });
-                } else {
-                    $('#enter-game').append('<p class="error">Sorry, this lobby is full.</p>');
-                }
+                var playerCount = getPlayerCount(key, user);
             }
         }
         event.preventDefault();
@@ -60,6 +44,25 @@ $(document).ready(function() {
     
     
 });
+function getPlayerCount(key, user) {
+  var playerCount = firebase.database().ref('games/' + key + '/playerCount');
+  playerCount.on('value', function(snapshot) {
+  addPlayer(snapshot.val(), user);
+  });
+}
+function addPlayer(playerCount, user) {
+    if (playerCount < 4) {
+        $('.error').remove();
+        var newPlayer = playerCount + 1;
+        var playerKey = "player" + newPlayer;
+        var pathRef = firebase.database().ref('games/' + key);
+        var newChildRef = pathRef.set({
+            playerKey: user
+        });
+    } else {
+        $('#enter-game').append('<p class="error">Sorry, this lobby is full.</p>');
+    }
+}
 function updateGameSetup(key) {
   var roomKey = firebase.database().ref('games/' + key + '/roomKey');
   roomKey.on('value', function(snapshot) {
