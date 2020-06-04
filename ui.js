@@ -47,10 +47,10 @@ $(document).ready(function() {
 function getPlayerCount(key, user) {
   var playerCount = firebase.database().ref('games/' + key + '/playerCount');
   playerCount.on('value', function(snapshot) {
-  addPlayer(snapshot.val(), user);
+  addPlayer(snapshot.val(), user, key);
   });
 }
-function addPlayer(playerCount, user) {
+function addPlayer(playerCount, user, key) {
     if (playerCount < 4) {
         $('.error').remove();
         var newPlayer = playerCount + 1;
