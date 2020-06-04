@@ -43,7 +43,7 @@ $(document).ready(function() {
     });
 });
 function getPlayerCount(key, user) {
-  var playerCount = firebase.database().ref('games/' + key + '/playerCount');
+  var playerCount = firebase.database().ref('games/' + key + '/numPlayers');
   playerCount.once('value', function(snapshot) {
   addPlayer(snapshot.val(), user, key);
   });
