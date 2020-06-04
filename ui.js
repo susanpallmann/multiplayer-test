@@ -102,7 +102,8 @@ function updatePlayerNumber(key) {
 function increaseNumber(num, key) {
     var newNumber = {numPlayers: 0};
     console.log(num);
-    var mathing = num++;
+    var oldNum = parseInt(num);
+    var mathing = num+1;
     console.log(mathing);
     newNumber.numPlayers = mathing;
     console.log(newNumber);
