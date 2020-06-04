@@ -53,7 +53,8 @@ function addPlayer(playerCount, user, key) {
         $('.error').remove();
         var newPlayer = playerCount + 1;
         var playerKey = "player" + newPlayer;
-        var newPlayerObject = {playerKey: user}
+        var newPlayerObject = {};
+        newPlayerObject[playerKey] = user;
         var pathRef = firebase.database().ref('games/' + key);
         var newChildRef = pathRef.set(newPlayerObject);
     } else {
