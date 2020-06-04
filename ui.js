@@ -71,6 +71,7 @@ function updatePlayers(key) {
           firebase.database().ref('games/' + key + '/player3'),
           firebase.database().ref('games/' + key + '/player4')
       ];
+      console.log(players);
       for (i=0; i<players.length; i++) {
           if (players[i] === null) {
               players.splice(i, 1);
