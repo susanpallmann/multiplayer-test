@@ -36,10 +36,11 @@ $(document).ready(function() {
             } else {
                 $('.error').remove();
                 // Check number of players
+                var playerCount;
                 var ref = firebase.database().ref('games/' + key + '/numPlayers');
                 ref.on("value", function(snapshot) {
-                  var playerCount = snapshot.val();
-                  console.log(playerCount)
+                  playerCount = snapshot.val();
+                  console.log(playerCount);
                 });
                 if (playerCount < 4) {
                     $('.error').remove();
