@@ -52,11 +52,12 @@ function addPlayer(playerCount, user, key) {
     if (playerCount < 4) {
         $('.error').remove();
         var newPlayer = playerCount + 1;
+        console.log(newPlayer);
         var playerKey = "player" + newPlayer;
         var newPlayerObject = {};
         newPlayerObject[playerKey] = user;
         var pathRef = firebase.database().ref('games/' + key);
-        var newChildRef = pathRef.set(newPlayerObject);
+        var newChildRef = pathRef.update(newPlayerObject);
         updatePlayerNumber(key);
     } else {
         $('#enter-game').append('<p class="error">Sorry, this lobby is full.</p>');
