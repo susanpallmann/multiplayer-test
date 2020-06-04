@@ -59,6 +59,7 @@ function addPlayer(num, user, key) {
         var pathRef = firebase.database().ref('games/' + key);
         var newChildRef = pathRef.update(newPlayerObject);
         updatePlayerNumber(key);
+        setupPlaySpace(key, user, newPlayer);
     } else {
         $('#enter-game').append('<p class="error">Sorry, this lobby is full.</p>');
     }
@@ -109,4 +110,17 @@ function increaseNumber(num, key) {
     console.log(newNumber);
     var pathRef = firebase.database().ref('games/' + key);
     var newChildRef = pathRef.update(newNumber);
+}
+function setupPlaySpace(key, user, num) {
+    $('#username').text(user);
+    $('#username').attr('player',num);
+    $('#entering-key').remove();
+    if (num === 1) {
+        $('.span12').append("<h1>You're the VIP. Hit 'everyone is in' when you're ready to start.</h1>");
+        $('.span12').append('<form id="start game"><input id="start-game" name="start-game" type="submit" value="everyone is in"></form>');
+        $('.row').append('<div class="span12 column" id="playspace"></div>);
+    } else {
+        $('.span12').append('<h1>Sit tight and wait for the game to begin.</h1>');
+        $('.row').append('<div class="span12 column" id="playspace"></div>);
+    }
 }
