@@ -19,6 +19,7 @@ $(document).ready(function() {
             var newChildRef = pathRef.set(values);
         }
         updateGameSetup(key);
+        updatePlayers(key);
         event.preventDefault();
     });
     
@@ -29,6 +30,33 @@ function updateGameSetup(key) {
   updateRoomKey(snapshot.val());
   });
 }
+
+function updatePlayers(key) {
+  var numPlayers = firebase.database().ref('games/' + key + '/numPlayers');
+  numPlayers.on('value', function(snapshot) {
+      var players = [
+          firebase.database().ref('games/' + key + '/player1'),
+          firebase.database().ref('games/' + key + '/player2'),
+          firebase.database().ref('games/' + key + '/player3'),
+          firebase.database().ref('games/' + key + '/player4')
+      ];
+      for (i=0; i<players.length; i++) {
+          if (players[i] === null) {
+              players.splice(i, 1);
+          } else {
+          }
+      }
+      updatePlayers(players);
+  });
+}
+
 function updateRoomKey(key) {
     $('#set-room-key').text(key);
+}
+function updatePlayers(players) {
+    $('.player-name').remove();
+    var array = players;
+    for (i=0; i<array.length; i++) {
+        $('#players').append('<p class="player-name">' + array[i] + '</p><br>');
+    }
 }
