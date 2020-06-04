@@ -3,7 +3,7 @@ $(document).ready(function() {
         var key = $('#room-key').val();
         var keyLength =  key.length;
         if (keyLength < 4 || keyLength > 4) {
-            $('#entering-key').append('<p class="error">Please enter a valid room key, must be 4 letters.</p>');
+            $('#enter-room').append('<p class="error">Please enter a valid room key, must be 4 letters.</p>');
         } else {
             $('.error').remove();
             console.log(key);
@@ -22,6 +22,37 @@ $(document).ready(function() {
         updatePlayers(key);
         event.preventDefault();
     });
+    $('#enter-game').submit(function(event) {
+        var key = $('#my-room-key').val();
+        var keyLength = key.length;
+        var user = $('#my-username').val();
+        var userLength = user.length;
+        if (keyLength < 4 || keyLength > 4) {
+            $('#enter-game').append('<p class="error">Please enter a valid room key, must be 4 letters.</p>');
+        } else {
+            $('.error').remove();
+            if (userLength < 2 || keyLength > 25) {
+                $('#enter-game').append('<p class="error">Please enter a valid username, must be longer than 2 letters and less than 25 letters.</p>');
+            } else {
+                $('.error').remove();
+                // Check number of players
+                var playerCount = firebase.database().ref('games/' + key + '/numPlayers');
+                if (playerCount < 4) {
+                    $('.error').remove();
+                    var newPlayer = playerCount + 1;
+                    var playerKey = "player" + newPlayer;
+                    var pathRef = firebase.database().ref('games/' + key);
+                    var newChildRef = pathRef.set({
+                        playerKey: user
+                    });
+                } else {
+                    $('#enter-game').append('<p class="error">Sorry, this lobby is full.</p>');
+                }
+            }
+        }
+        event.preventDefault();
+    });
+    
     
 });
 function updateGameSetup(key) {
