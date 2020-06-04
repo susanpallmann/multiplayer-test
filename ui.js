@@ -36,7 +36,11 @@ $(document).ready(function() {
             } else {
                 $('.error').remove();
                 // Check number of players
-                var playerCount = firebase.database().ref('games/' + key + '/numPlayers');
+                var ref = firebase.database().ref('games/' + key + '/numPlayers');
+                ref.orderByChild("timestamp").limitToLast(1).on("child_added", function(snapshot) {
+                  var playerCount = snapshot.val();
+                  console.log(playerCount)
+                });
                 if (playerCount < 4) {
                     $('.error').remove();
                     var newPlayer = playerCount + 1;
