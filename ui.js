@@ -71,21 +71,20 @@ function updatePlayers(key) {
           firebase.database().ref('games/' + key + '/player3'),
           firebase.database().ref('games/' + key + '/player4')
       ];
-      console.log(players);
       for (i=0; i<players.length; i++) {
           if (players[i] === null) {
               players.splice(i, 1);
           } else {
           }
       }
-      updatePlayers(players);
+      showPlayers(players);
   });
 }
 
 function updateRoomKey(key) {
     $('#set-room-key').text(key);
 }
-function updatePlayers(players) {
+function showPlayers(players) {
     $('.player-name').remove();
     var array = players;
     for (i=0; i<array.length; i++) {
