@@ -102,7 +102,7 @@ function updatePlayerNumber(key) {
 function increaseNumber(num, key) {
     var newNumber = {numPlayers: 0};
     var mathing = num++;
-    newNumber[numPlayers] = mathing;
+    newNumber.numPlayers = mathing;
     var pathRef = firebase.database().ref('games/' + key);
     var newChildRef = pathRef.update(newNumber);
 }
