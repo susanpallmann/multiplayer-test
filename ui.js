@@ -79,7 +79,7 @@ function updatePlayers(key) {
     displayPlayer(snapshot.val(), 2);
   });
   var player3 = firebase.database().ref('games/' + key + '/player3');
-  player23.on('value', function(snapshot) {
+  player3.on('value', function(snapshot) {
     displayPlayer(snapshot.val(), 3);
   });
   var player4 = firebase.database().ref('games/' + key + '/player4');
