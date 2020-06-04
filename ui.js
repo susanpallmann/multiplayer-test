@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    $('#submit-key').click(function () {
+    $('#submit-key').click(function (event) {
         var key = $('room-key').val();
         var keyLength =  key.length;
         if (keyLength < 4 || keyLength > 4) {
@@ -8,5 +8,6 @@ $(document).ready(function(){
             $('#entering-key').remove();
             console.log(key);
         }
+        event.preventDefault();
     });
 });
