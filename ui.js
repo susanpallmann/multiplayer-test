@@ -29,6 +29,6 @@ function updateGameSetup(key) {
   updateRoomKey(snapshot.val());
   });
 }
-updateRoomKey(key) {
+function updateRoomKey(key) {
     $('#set-room-key').text(key);
 }
