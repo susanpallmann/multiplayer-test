@@ -65,8 +65,10 @@ function updateGameSetup(key) {
 function updatePlayers(key) {
   var numPlayers = firebase.database().ref('games/' + key + '/numPlayers');
   numPlayers.on('value', function(snapshot) {
+      var play1 = firebase.database().ref('games/' + key + '/player1');
+      console.log(play1);
       var players = [
-          firebase.database().ref('games/' + key + '/player1'),
+          play1,
           firebase.database().ref('games/' + key + '/player2'),
           firebase.database().ref('games/' + key + '/player3'),
           firebase.database().ref('games/' + key + '/player4')
