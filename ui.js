@@ -95,7 +95,7 @@ function displayPlayer(playername, number) {
 }
 function updatePlayerNumber(key) {
     var number = firebase.database().ref('games/' + key + '/numPlayers');
-    number.on('value', function(snapshot) {
+    number.once('value', function(snapshot) {
       increaseNumber(snapshot.val(), key);
     });
 }
