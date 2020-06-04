@@ -15,7 +15,7 @@ $(document).ready(function() {
                 player4: null
             }
             var pathRef = firebase.database().ref('games/' + key);
-            var newChildRef = pathRef.push(values);
+            var newChildRef = pathRef.set(values);
         }
         event.preventDefault();
     });
