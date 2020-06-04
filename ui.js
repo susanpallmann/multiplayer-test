@@ -53,10 +53,9 @@ function addPlayer(playerCount, user, key) {
         $('.error').remove();
         var newPlayer = playerCount + 1;
         var playerKey = "player" + newPlayer;
+        var newPlayerObject = {playerKey: user}
         var pathRef = firebase.database().ref('games/' + key);
-        var newChildRef = pathRef.set({
-            playerKey: user
-        });
+        var newChildRef = pathRef.set(newPlayerObject);
     } else {
         $('#enter-game').append('<p class="error">Sorry, this lobby is full.</p>');
     }
