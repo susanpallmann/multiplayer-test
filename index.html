@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Multiplayer Test</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="discount-bootstrap.css">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,600;0,800;1,400;1,600;1,800&display=swap" rel="stylesheet">  
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <noscript><link rel="stylesheet" type="text/css" href="no-script.css"></noscript>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="ui.js"></script>
+    <script type="text/javascript" src="discount-bootstrap.js"></script>
+  </head>
+  <body>
+    <header>
+    </header>
+    <main>
+      <div class="container">
+        <div class="row">
+          <div class="column span12">
+            <h1>Multiplayer Test</h1>
+            <p>I'm going to demonstrate to Auben that I can do realtime multiplayer using Google Firebase.</p>
+            <form id="enter-room" name="enter-room">
+              <label for="room-key"><input name="room-key" id="room-key" type="text">
+              <span class="material-icons md-36">
+                <input id="submit-key" name="submit-key" type="submit value="submit">
+              </span>
+            </form>
+            <div id="room">
+              <h2>Room Code</h2>
+              <p id="set-room-key"></p>
+            </div>
+            <div id="players">
+              <h2>Players</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer>
+    </footer>
+  </body>
+</html>
