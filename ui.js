@@ -44,7 +44,7 @@ $(document).ready(function() {
 });
 function getPlayerCount(key, user) {
   var playerCount = firebase.database().ref('games/' + key + '/playerCount');
-  playerCount.on('value', function(snapshot) {
+  playerCount.once('value', function(snapshot) {
   addPlayer(snapshot.val(), user, key);
   });
 }
