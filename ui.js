@@ -36,7 +36,7 @@ $(document).ready(function() {
             } else {
                 $('.error').remove();
                 // Check number of players
-                var playerCount = getPlayerCount(key, user);
+                getPlayerCount(key, user);
             }
         }
         event.preventDefault();
