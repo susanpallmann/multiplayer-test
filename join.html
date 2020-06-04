@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Multiplayer Test</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="discount-bootstrap.css">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,600;0,800;1,400;1,600;1,800&display=swap" rel="stylesheet">  
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <noscript><link rel="stylesheet" type="text/css" href="no-script.css"></noscript>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-app.js"></script>
+      <!-- TODO: Add SDKs for Firebase products that you want to use
+      https://firebase.google.com/docs/web/setup#available-libraries -->
+      <script src="https://www.gstatic.com/firebasejs/7.8.2/firebase-database.js"></script>
+      <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+          apiKey: "AIzaSyAJXNHKF1l2lrZI1FUxb9AeMe6QeqsmOPE",
+          authDomain: "multiplayer-test-e4d1b.firebaseapp.com",
+          databaseURL: "https://multiplayer-test-e4d1b.firebaseio.com",
+          projectId: "multiplayer-test-e4d1b",
+          storageBucket: "multiplayer-test-e4d1b.appspot.com",
+          messagingSenderId: "1092903356195",
+          appId: "1:1092903356195:web:35185d004326d991432e96"
+        };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
+    <script type="text/javascript" src="ui.js"></script>
+    <script type="text/javascript" src="discount-bootstrap.js"></script>
+  </head>
+  <body>
+    <header>
+    </header>
+    <main>
+      <div class="container">
+        <div class="row">
+          <div class="column span12" id="entering-key">
+            <h1>Join Game</h1>
+            <p>I'm going to demonstrate to Auben that I can do realtime multiplayer using Google Firebase.</p>
+            <form id="enter-game" name="enter-game">
+              <label for="my-room-key">Enter your game's 4-letter room key.</label><br><input name="my-room-key" id="my-room-key" type="text"><br>
+              <label for="my-username">Enter a username.</label><br><input name="my-username" id="my-username" type="text"><br>
+              <span class="material-icons md-36">
+                <input id="submit-player" name="submit-player" type="submit" value="send">
+              </span>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer>
+    </footer>
+  </body>
+</html>
