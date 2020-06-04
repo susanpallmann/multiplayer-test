@@ -57,6 +57,7 @@ function addPlayer(playerCount, user, key) {
         newPlayerObject[playerKey] = user;
         var pathRef = firebase.database().ref('games/' + key);
         var newChildRef = pathRef.set(newPlayerObject);
+        updatePlayerNumber(key);
     } else {
         $('#enter-game').append('<p class="error">Sorry, this lobby is full.</p>');
     }
@@ -90,4 +91,17 @@ function updatePlayers(key) {
 }
 function displayPlayer(playername, number) {
     $('#players #player' + number).text(playername);
+}
+function updatePlayerNumber(key) {
+    var number = firebase.database().ref('games/' + key + '/numPlayers');
+    number.on('value', function(snapshot) {
+      increaseNumber(snapshot.val(), key);
+    });
+}
+function increaseNumber(num, key) {
+    var newNumber = {numPlayers: 0};
+    var mathing = num++;
+    newNumber[numPlayers] = mathing;
+    var pathRef = firebase.database().ref('games/' + key);
+    var newChildRef = pathRef.update(newNumber);
 }
