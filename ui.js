@@ -37,7 +37,7 @@ $(document).ready(function() {
                 $('.error').remove();
                 // Check number of players
                 var ref = firebase.database().ref('games/' + key + '/numPlayers');
-                ref.orderByChild("timestamp").limitToLast(1).on("child_added", function(snapshot) {
+                ref.on("value", function(snapshot) {
                   var playerCount = snapshot.val();
                   console.log(playerCount)
                 });
