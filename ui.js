@@ -41,8 +41,6 @@ $(document).ready(function() {
         }
         event.preventDefault();
     });
-    
-    
 });
 function getPlayerCount(key, user) {
   var playerCount = firebase.database().ref('games/' + key + '/playerCount');
@@ -69,35 +67,27 @@ function updateGameSetup(key) {
   updateRoomKey(snapshot.val());
   });
 }
-
-function updatePlayers(key) {
-  var numPlayers = firebase.database().ref('games/' + key + '/numPlayers');
-  numPlayers.on('value', function(snapshot) {
-      var play1 = firebase.database().ref('games/' + key + '/player1');
-      console.log(play1);
-      var players = [
-          play1,
-          firebase.database().ref('games/' + key + '/player2'),
-          firebase.database().ref('games/' + key + '/player3'),
-          firebase.database().ref('games/' + key + '/player4')
-      ];
-      for (i=0; i<players.length; i++) {
-          if (players[i] === null) {
-              players.splice(i, 1);
-          } else {
-          }
-      }
-      showPlayers(players);
-  });
-}
-
 function updateRoomKey(key) {
     $('#set-room-key').text(key);
 }
-function showPlayers(players) {
-    $('.player-name').remove();
-    var array = players;
-    for (i=0; i<array.length; i++) {
-        $('#players').append('<p class="player-name">' + array[i] + '</p><br>');
-    }
+function updatePlayers(key) {
+  var player1 = firebase.database().ref('games/' + key + '/player1');
+  player1.on('value', function(snapshot) {
+    displayPlayer(snapshot.val(), 1);
+  });
+  var player2 = firebase.database().ref('games/' + key + '/player2');
+  player2.on('value', function(snapshot) {
+    displayPlayer(snapshot.val(), 2);
+  });
+  var player3 = firebase.database().ref('games/' + key + '/player3');
+  player23.on('value', function(snapshot) {
+    displayPlayer(snapshot.val(), 3);
+  });
+  var player4 = firebase.database().ref('games/' + key + '/player4');
+  player4.on('value', function(snapshot) {
+    displayPlayer(snapshot.val(), 4);
+  });
+}
+function displayPlayer(playername, number) {
+    $('#players #player' + number).text(playername);
 }
