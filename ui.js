@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).ready(function() {
     $('#submit-key').submit(function(event) {
         var key = $('room-key').val();
         var keyLength =  key.length;
