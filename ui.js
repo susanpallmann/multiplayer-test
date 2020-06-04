@@ -48,10 +48,10 @@ function getPlayerCount(key, user) {
   addPlayer(snapshot.val(), user, key);
   });
 }
-function addPlayer(playerCount, user, key) {
-    if (playerCount < 4) {
+function addPlayer(num, user, key) {
+    if (num < 4) {
         $('.error').remove();
-        var newPlayer = playerCount + 1;
+        var newPlayer = num + 1;
         console.log(newPlayer);
         var playerKey = "player" + newPlayer;
         var newPlayerObject = {};
