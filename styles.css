@@ -1,3 +1,7 @@
 body {
   font-family: 'raleway', sans-serif;
 }
+p.error {
+  background-color: rgba(255, 125, 125, 0.2);
+  border: 2px solid #ff6666;
+}
