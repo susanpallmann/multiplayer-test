@@ -118,9 +118,9 @@ function setupPlaySpace(key, user, num) {
     if (num === 1) {
         $('.span12').append("<h1>You're the VIP. Hit 'everyone is in' when you're ready to start.</h1>");
         $('.span12').append('<form id="start game"><input id="start-game" name="start-game" type="submit" value="everyone is in"></form>');
-        $('.row').append('<div class="span12 column" id="playspace"></div>);
+        $('.row').append('<div class="span12 column" id="playspace"></div>');
     } else {
         $('.span12').append('<h1>Sit tight and wait for the game to begin.</h1>');
-        $('.row').append('<div class="span12 column" id="playspace"></div>);
+        $('.row').append('<div class="span12 column" id="playspace"></div>');
     }
 }
