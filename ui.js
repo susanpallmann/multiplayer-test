@@ -139,9 +139,9 @@ function generateRoomCode() {
             console.log(roomCode);
             generateDigits(roomCode);
         } else {
-            return;
+            return roomCode;
         }
     }
-    generateDigits(roomCode);
-    console.log(roomCode);
+    var code = generateDigits(roomCode);
+    console.log(code);
 }
