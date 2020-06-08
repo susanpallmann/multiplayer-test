@@ -131,17 +131,17 @@ function setupPlaySpace(key, user, num) {
 
 function generateRoomCode() {
     var roomCode = "";
-    function generateDigits(roomCode) {
-        if (roomCode.length < 4) {
+    function generateDigits(code) {
+        if (code.length < 4) {
             var tempNum = Math.floor((Math.random() * 26) + 1);
             var tempLetter = String.fromCharCode(97 + tempNum);
-            roomCode =  roomCode + tempLetter;
+            roomCode =  code + tempLetter;
             console.log(roomCode);
             generateDigits(roomCode);
         } else {
-            return roomCode;
+            return code;
         }
     }
-    var code = generateDigits(roomCode);
-    console.log(code);
+    generateDigits(roomCode);
+    console.log(roomCode);
 }
