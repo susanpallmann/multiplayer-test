@@ -21,3 +21,11 @@ h1 {
 h3 {
   font-size: 2em;
 }
+.button {
+  outline: none;
+  border: none;
+  background-color: #713E75;
+  color: #ffffff;
+  font-family: 'fauna one', sans-serif;
+  font-size: 1.5em;
+}
