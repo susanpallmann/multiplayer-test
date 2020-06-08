@@ -27,5 +27,10 @@ h3 {
   background-color: #713E75;
   color: #ffffff;
   font-family: 'fauna one', sans-serif;
-  font-size: 1.5em;
+  font-size: 1.25em;
+  padding: 0.4em 1.5em;
+  border-radius: 10px;
+}
+.button:hover {
+  background-color: #8A548D;
 }
