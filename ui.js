@@ -1,6 +1,6 @@
 $(document).ready(function() {
     $('#start-game').submit(function(event) {
-        console.log(generateRoomCode());
+        generateRoomCode();
         event.preventDefault();
     });
     $('#enter-room').submit(function(event) {
@@ -142,4 +142,6 @@ function generateRoomCode() {
             return roomCode;
         }
     }
+    generateDigits(roomCode);
+    console.log(roomCode);
 }
