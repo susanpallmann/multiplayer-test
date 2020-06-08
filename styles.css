@@ -12,5 +12,12 @@ h1, h2, h3, h4, h5 {
   color: #FFCB7B;
 }
 h2 {
-  color: #61564E
+  color: #61564E;
+  margin: 0;
+}
+h1 {
+  font-size: 4em;
+}
+h3 {
+  font-size: 2em;
 }
