@@ -1,4 +1,8 @@
 $(document).ready(function() {
+    $('#start-game').submit(function(event) {
+        console.log(generateRoomCode());
+        event.preventDefault();
+    });
     $('#enter-room').submit(function(event) {
         var key = $('#room-key').val();
         var keyLength =  key.length;
@@ -122,5 +126,20 @@ function setupPlaySpace(key, user, num) {
     } else {
         $('.span12').append('<h1>Sit tight and wait for the game to begin.</h1>');
         $('.row').append('<div class="span12 column" id="playspace"></div>');
+    }
+}
+
+function generateRoomCode() {
+    var roomCode = "";
+    function generateDigits(roomCode) {
+        if (roomCode.length < 4) {
+            var tempNum = Math.floor((Math.random() * 26) + 1);
+            var tempLetter = String.fromCharCode(97 + tempNum);
+            roomCode =  roomCode + tempLetter;
+            console.log(roomCode);
+            generateDigits(roomCode);
+        } else {
+            return roomCode;
+        }
     }
 }
