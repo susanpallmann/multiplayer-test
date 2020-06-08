@@ -139,7 +139,7 @@ function generateRoomCode() {
             console.log(roomCode);
             generateDigits(roomCode);
         } else {
-            return roomCode;
+            return;
         }
     }
     generateDigits(roomCode);
