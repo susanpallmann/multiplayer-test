@@ -183,4 +183,5 @@ body[phase="2"] #phase-2 {
   left: 0.5em;
   margin: 0;
   text-shadow: 0px 0px 4px #000;
+  display: none;
 }
