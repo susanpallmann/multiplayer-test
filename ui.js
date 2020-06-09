@@ -178,6 +178,7 @@ function lobbySetup(key) {
         player7: null,
         player8: null,
     };
+    $('#room-code').text(key);
     // Sends new game to the database stored under the room key.
     var ref = firebase.database().ref('games/' + key);
     var newChildRef = ref.set(values);
