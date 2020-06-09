@@ -3,25 +3,6 @@ $(document).ready(function() {
         generateRoomCode();
         event.preventDefault();
     });
-    $('#enter-game').submit(function(event) {
-        var key = $('#my-room-key').val();
-        var keyLength = key.length;
-        var user = $('#my-username').val();
-        var userLength = user.length;
-        if (keyLength < 4 || keyLength > 4) {
-            $('#enter-game').append('<p class="error">Please enter a valid room key, must be 4 letters.</p>');
-        } else {
-            $('.error').remove();
-            if (userLength < 2 || keyLength > 25) {
-                $('#enter-game').append('<p class="error">Please enter a valid username, must be longer than 2 letters and less than 25 letters.</p>');
-            } else {
-                $('.error').remove();
-                // Check number of players
-                getPlayerCount(key, user);
-            }
-        }
-        event.preventDefault();
-    });
 });
 function getPlayerCount(key, user) {
   var playerCount = firebase.database().ref('games/' + key + '/numPlayers');
