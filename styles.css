@@ -132,27 +132,27 @@ body div #avatar-selector .avatar.unavailable {
   background-color: #443B3B;
   opacity: 0.5em;
 }
-body[color="purple"] #avatar-selector .avatar {
+body[color="purple"] #avatar-selector .avatar, body[color="purple"] #avatar-selector .avatar.unavailable.selected {
   background-color: #CB91FF;
 }
-body[color="blue"] #avatar-selector .avatar {
+body[color="blue"] #avatar-selector .avatar, body[color="blue"] #avatar-selector .avatar.unavailable.selected {
   background-color: #87D8E5;
 }
-body[color="green"] #avatar-selector .avatar {
+body[color="green"] #avatar-selector .avatar, body[color="green"] #avatar-selector .avatar.unavailable.selected {
   background-color: #88E587;
 }
-body[color="yellow"] #avatar-selector .avatar {
+body[color="yellow"] #avatar-selector .avatar, body[color="yellow"] #avatar-selector .avatar.unavailable.selected {
   background-color: #FFD088;
 }
-body[color="red"] #avatar-selector .avatar {
+body[color="red"] #avatar-selector .avatar, body[color="red"] #avatar-selector .avatar.unavailable.selected {
   background-color: #FF7A7A;
 }
-body[color="pink"] #avatar-selector .avatar {
+body[color="pink"] #avatar-selector .avatar, body[color="pink"] #avatar-selector .avatar.unavailable.selected {
   background-color: #FFA7D3;
 }
-body[color="white"] #avatar-selector .avatar {
+body[color="white"] #avatar-selector .avatar, body[color="white"] #avatar-selector .avatar.unavailable.selected {
   background-color: #FFF3E1;
 }
-body[color="teal"] #avatar-selector .avatar {
+body[color="teal"] #avatar-selector .avatar, body[color="teal"] #avatar-selector .avatar.unavailable.selected {
   background-color: #87E9CC;
 }
