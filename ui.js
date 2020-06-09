@@ -15,6 +15,9 @@ function trackGamePhase(key) {
 }
 function updatePhase(val) {
     $('body').attr('phase', val);
+    if (val === 2) {
+        runTutorial();
+    }
 }
 function updateNumPlayers(key) {
   var playerCount = firebase.database().ref('games/' + key + '/playerCount');
@@ -236,4 +239,33 @@ function displayPlayer(user, color, avatar) {
             console.log('this ran 3');
         }
     });
+}
+function timesUpCodes(code) {
+    switch(code) {
+        case 1:
+            // Call function here
+            console.log("time's up!");
+            break;
+        default:
+            break;
+    }
+}
+function startTimer(duration, code) {
+    var timer = duration, seconds;
+    setInterval(function () {
+        seconds = parseInt(timer % 60, 10);
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+        $('#timer').css('display','block');
+        $('#timer').text(seconds);
+        if (--timer < 0) {
+            $('#timer').css('display','none');
+            timesUpCodes(code);
+        }
+    }, 1000);
+}
+function runTutorial() {
+    // Run tutorial video thing.
+    // Just to see if this works, we'll start a timer too.
+    startTimer(30, 1);
+    // Then we need to tell the database what capabilities each user's inventory has right now (system TBD).
 }
