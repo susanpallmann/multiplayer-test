@@ -235,3 +235,6 @@ input[type="number"]:active {
 .float-right {
   float: right;
 }
+.header {
+  display: inline-block;
+}
