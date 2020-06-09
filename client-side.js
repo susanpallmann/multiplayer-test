@@ -221,9 +221,9 @@ function checkAvatars(key) {
 function displayAvatar(avatar, value) {
     console.log("this ran");
     if (value) {
-        $('#' + avatar).attr('unavailable', false);
+        $('#' + avatar).attr('unavailable', 'no');
     } else {
-        $('#' + avatar).attr('unavailable', true);
+        $('#' + avatar).attr('unavailable', 'yes');
     }
 }
 // Damn
