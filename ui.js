@@ -128,7 +128,7 @@ function setupPlaySpace(key, user, num) {
         $('.row').append('<div class="span12 column" id="playspace"></div>');
     }
 }
-
+// Function to generate a random room code for the start of the game.
 function generateRoomCode() {
     var roomCode = "";
     function generateDigits(code) {
@@ -144,4 +144,14 @@ function generateRoomCode() {
     }
     generateDigits(roomCode);
     console.log(roomCode);
+}
+function verifyRoomCode(key) {
+    firebase.database().ref('games'/key).once("value", snapshot => {
+        if (snapshot.exists()) {
+            console.log("exists!");
+            generateRoomCode();
+        } else {
+            console.log("This room key is not taken, and here we'll run the function to setup the game.")
+        }
+    });
 }
