@@ -48,6 +48,7 @@ h3 {
   height: 50px;
   width: 50px;
   display: inline-block;
+  border: 2px solid #FFCB7B;
 }
 #players-menu h4 {
   display: inline-block;
@@ -61,6 +62,7 @@ h3 {
 }
 #players-menu .player-tile.empty .avatar {
   background-color: #443B3B;
+  border: none;
 }
 #players-menu .player-tile[character="none"] .avatar {
   background-image: none;
