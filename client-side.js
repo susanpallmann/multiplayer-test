@@ -1,17 +1,6 @@
 // Some global variables to track important things that we're going to use a lot, like the number of players.
 var numPlayers;
 
-function updateNumPlayers(key) {
-  var playerCount = firebase.database().ref('games/' + key + '/playerCount');
-  playerCount.on('value', function(snapshot) {
-      numPlayers = snapshot.val();
-      console.log("this ran");
-  });
-}
-
-window.onbeforeunload(function() {
-    // Detects that the user is leaving. We'll need to do some stuff.
-});
 $(document).ready(function() {
     $('#enter-game').submit(function(event) {
         var key = $('#my-room-key').val();
@@ -40,6 +29,15 @@ $(document).ready(function() {
         event.preventDefault();
     });
 });
+
+function updateNumPlayers(key) {
+  var playerCount = firebase.database().ref('games/' + key + '/playerCount');
+  playerCount.on('value', function(snapshot) {
+      numPlayers = snapshot.val();
+      console.log("this ran");
+  });
+}
+
 function validateUsername(username) {
     if (!/^[a-zA-Z]*$/g.test(username)) {
         return true;
