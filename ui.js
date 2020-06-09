@@ -144,14 +144,18 @@ function generateRoomCode() {
     }
     generateDigits(roomCode);
     console.log(roomCode);
+    if (verifyRoomCode(roomCode)) {
+        generateRoomCode();
+    } else {
+        console.log("This room key is not taken, and here we'll run the function to setup the game.");
+    }
 }
 function verifyRoomCode(key) {
     firebase.database().ref('games'/key).once("value", snapshot => {
         if (snapshot.exists()) {
-            console.log("exists!");
-            generateRoomCode();
+            return true;
         } else {
-            console.log("This room key is not taken, and here we'll run the function to setup the game.")
+            return false;
         }
     });
 }
