@@ -224,3 +224,4 @@ function displayAvatar(avatar, value) {
         $('#' + avatar).attr('unavailable','true');
     }
 }
+// Damn
