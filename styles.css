@@ -38,6 +38,10 @@ h3 {
   cursor: pointer;
   display: inline-block;
   margin: 0.3em 0px;
+  width: 100%;
+}
+.button.short {
+  width: auto;
 }
 .button:hover {
   background-color: #8A548D;
