@@ -47,6 +47,10 @@ h3 {
   height: 65px;
   width: 65px;
 }
+#players-menu h4 {
+  display: inline-block;
+  font-size: 2em;
+}
 #players-menu h4[color="empty"] {
   color: #ffffff;
 }
