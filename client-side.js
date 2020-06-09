@@ -69,7 +69,7 @@ function validateKey(key, user) {
              $('.error').remove();
              $('#enter-game').append('<p class="error">Please enter a valid room key.</p>');
         }
-    }
+    });
 }
 
 function validateUser(key, user) {
