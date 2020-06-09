@@ -241,10 +241,13 @@ input[type="number"]:active {
 #card {
   background-color: #504646;
   border-radius: 13px;
+  padding: 8px;
+  max-width: 350px;
 }
 #card .border {
   border: 2px solid #FFCB7B;
   border-radius: 4px;
+  padding: 8px;
 }
 #card-sell {
   color: #FFCB7B;
@@ -255,6 +258,6 @@ input[type="number"]:active {
 #card-title {
   color: #ffffff;
 }
-card-desc {
+#card-desc {
   color: #ffffff;
 }
