@@ -128,7 +128,7 @@ function joinGame(key, user, num) {
         avatar: "none",
         color: playerColor,
     };
-    var ref = firebase.database().ref('games/' + key + '/playerKey');
+    var ref = firebase.database().ref('games/' + key + '/' + playerKey);
     var newChildRef = ref.set(values);
     changePlayerCount(key, playerNum);
 }
