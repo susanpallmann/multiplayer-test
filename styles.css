@@ -159,6 +159,6 @@ body[color="teal"] #avatar-selector .avatar, body[color="teal"] #avatar-selector
 #begin-play {
   display: none;
 }
-body[player-key="player1"] #begin-play {
+body[player="player1"] #begin-play {
   display: block;
 }
