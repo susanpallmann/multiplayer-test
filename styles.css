@@ -243,6 +243,7 @@ input[type="number"]:active {
   border-radius: 13px;
   padding: 8px;
   max-width: 350px;
+  margin: auto;
 }
 #card .border {
   border: 2px solid #FFCB7B;
