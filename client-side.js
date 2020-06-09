@@ -122,6 +122,7 @@ function sendPlayerValues(key, user, playerKey, playerNum, playerColor, chosenAv
     avatarValues[chosenAvatar] = false;
     var avatarChildRef = avatarUpdate.update(avatarValues);
     changePlayerCount(key, playerNum);
+    checkAvatars();
 }
 function joinGame(key, user, num) {
     var playerNum = num + 1;
