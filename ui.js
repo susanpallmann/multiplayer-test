@@ -209,16 +209,20 @@ function updatePlayers(key) {
 function displayPlayer(user, color, avatar) {   
     $('.player-tile').each(function(index) {
         if ($(this).find('h4').text().indexOf(user)) {
+            console.log('this ran 1');
             $(this).removeClass('empty');
             $(this).attr('color', color)
                 .attr('avatar', avatar);
             $(this).find('h4').text(user);
             return false;
         } else if ($(this).hasClass('empty')) {
+            console.log('this ran 2');
             $(this).attr('color', color)
                 .attr('avatar', avatar);
             $(this).find('h4').text(user);
             return false;
+        } else {
+            console.log('this ran 3');
         }
     });
 }
