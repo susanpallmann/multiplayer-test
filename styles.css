@@ -45,6 +45,7 @@ h3 {
 .avatar {
   height: 65px;
   width: 65px;
+  display: inline-block;
 }
 #players-menu h4 {
   display: inline-block;
@@ -59,9 +60,60 @@ h3 {
 #players-menu[color="empty"] .avatar {
   background-color: #443B3B;
 }
-#players-menu[avatar="none"] .avatar {
+#players-menu .player-tile[character="none"] .avatar {
   background-image: none;
 }
 #p1 .avatar {
   background-color: #CB91FF;
+}
+#p1 h4 {
+  color: #CB91FF;
+}
+#p1 .avatar {
+  background-color: #CB91FF;
+}
+#p1 h4 {
+  color: #CB91FF;
+}
+#p2 .avatar {
+  background-color: #87D8E5;
+}
+#p2 h4 {
+  color: #87D8E5;
+}
+#p3 .avatar {
+  background-color: #88E587;
+}
+#p3 h4 {
+  color: #88E587;
+}
+#p4 .avatar {
+  background-color: #FFD088;
+}
+#p4 h4 {
+  color: #FFD088;
+}
+#p5 .avatar {
+  background-color: #FF7A7A;
+}
+#p5 h4 {
+  color: #FF7A7A;
+}
+#p6 .avatar {
+  background-color: #FFA7D3;
+}
+#p6 h4 {
+  color: #FFA7D3;
+}
+#p7 .avatar {
+  background-color: #FFF3E1;
+}
+#p7 h4 {
+  color: #FFF3E1;
+}
+#p8 .avatar {
+  background-color: #87E9CC;
+}
+#p8 h4 {
+  color: #87E9CC;
 }
