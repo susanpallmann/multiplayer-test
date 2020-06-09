@@ -65,7 +65,7 @@ h3 {
   background-color: #443B3B;
   border: none;
 }
-#players-menu .player-tile[character="none"] .avatar {
+#players-menu .player-tile[avatar="none"] .avatar {
   background-image: none;
 }
 #players-menu .player-tile[color="purple"] .avatar {
