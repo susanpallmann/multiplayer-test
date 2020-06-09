@@ -122,7 +122,7 @@ function sendPlayerValues(key, user, playerKey, playerNum, playerColor, chosenAv
     avatarValues[chosenAvatar] = false;
     var avatarChildRef = avatarUpdate.update(avatarValues);
     changePlayerCount(key, playerNum);
-    checkAvatars();
+    checkAvatars(key);
 }
 function joinGame(key, user, num) {
     var playerNum = num + 1;
@@ -181,7 +181,7 @@ function changePlayerCount(key, playerNum) {
     var ref = firebase.database().ref('games/' + key);
     var newChildRef = ref.update(values);
 }
-function checkAvatars() {
+function checkAvatars(key) {
     var avatar1 = firebase.database().ref('games/' + key + '/avatars/avatar1');
     avatar1.on('value', function(snapshot) {
         displayAvatar('avatar1', snapshot);
