@@ -1,5 +1,7 @@
 // Some global variables to track important things that we're going to use a lot, like the number of players.
 var numPlayers;
+var cleanDeck = [];
+var playDeck = [];
 
 $(document).ready(function() {
     $('#start-game').submit(function(event) {
@@ -105,6 +107,9 @@ function lobbySetup(key) {
             // Phase 4: Win   || Shows a winner and overall scoreboard, ends play, and allows either repeat game or a full restart.
             // Phase 5: Error || Ends the game due to too few players, shows error on screen and then brings host to the homepage.
             // Phase 6: Close || Occurs if the host window is closed, ends the game and removes the room code again.
+        inventoryMode: 1, // Changes functionality in all users' inventories following the following codes:
+            // 1 || Equip mode, cards disabled.
+            // 2 || Effects mode, equipment disabled.
         // Player slots
         player1: null,
         player2: null,
