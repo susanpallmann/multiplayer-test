@@ -91,6 +91,18 @@ function validateUser(key, user) {
         }
     });
 }
+function sendPlayerValues(key, user, playerKey, playerNum, playerColor, chosenAvatar) {
+    var values = {
+        username: user,
+        avatar: chosenAvatar,
+        color: playerColor,
+    };
+    var ref = firebase.database().ref('games/' + key + '/' + playerKey);
+    var newChildRef = ref.set(values);
+    var avatarUpdate = firebase.database().ref('games/' + key + '/avatars');
+    var avatarChildRef = avatarUpdate.update({chosenAvatar: false});
+    changePlayerCount(key, playerNum);
+}
 function joinGame(key, user, num) {
     var playerNum = num + 1;
     var playerKey = "player" + playerNum;
@@ -125,18 +137,21 @@ function joinGame(key, user, num) {
             break;
            }
     $('body').attr('color', playerColor);
-    var randAvatar = Math.floor(Math.random() * 8) + 1;
-    var chosenAvatar = "avatar" + randAvatar;
-    var values = {
-        username: user,
-        avatar: chosenAvatar,
-        color: playerColor,
-    };
-    var ref = firebase.database().ref('games/' + key + '/' + playerKey);
-    var newChildRef = ref.set(values);
-    var avatarUpdate = firebase.database().ref('games/' + key + '/avatars');
-    var avatarChildRef = avatarUpdate.update({chosenAvatar: false});
-    changePlayerCount(key, playerNum);
+    var chosenAvatar
+    function chooseRandomAvatar(avatar) {
+        var randAvatar = Math.floor(Math.random() * 8) + 1;
+        chosenAvatar = "avatar" + randAvatar;
+        var ref = firebase.database().ref('games/' + key + '/avatars/' + chosenAvatar);
+        ref.once('value', function(snapshot) {
+            var value = snapshot.val();
+            if (value) {
+                sendPlayerValues(key, user, playerKey, playerNum, playerColor, chosenAvatar);
+            } else {
+                chooseRandomAvatar(chosenAvatar);
+            }
+        });
+    }
+    chooseRandomAvatar(chosenAvatar);
 }
 function changePlayerCount(key, playerNum) {
     var values = {
