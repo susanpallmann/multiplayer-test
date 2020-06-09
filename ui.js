@@ -133,7 +133,7 @@ function generateRoomCode() {
     var roomCode = "";
     function generateDigits(code) {
         if (code.length < 4) {
-            var tempNum = Math.floor((Math.random() * 26) + 1);
+            var tempNum = Math.floor(Math.random() * 25);
             var tempLetter = String.fromCharCode(97 + tempNum);
             roomCode =  code + tempLetter;
             console.log(roomCode);
