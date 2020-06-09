@@ -158,7 +158,7 @@ function verifyRoomCode(key) {
 // Function to set up the initial lobby for users to join client-side.
 function lobbySetup(key) {
     // Sets up some dummy directory values and sets some mechanical numbers
-    var values {
+    var values = {
         roomCode: key, // Room code, just in case it's needed
         playerCount: 0, // Keeps a count of how many players are in game
         phase: 1, // Tracks game progression, see below:
