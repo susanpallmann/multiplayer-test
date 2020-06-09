@@ -144,17 +144,15 @@ function generateRoomCode() {
     }
     generateDigits(roomCode);
     console.log(roomCode);
-    if (verifyRoomCode(roomCode)) {
-        generateRoomCode();
-    } else {
-        console.log("This room key is not taken, and here we'll run the function to setup the game.");
-    }
+    verifyRoomCode(roomCode);
 }
 function verifyRoomCode(key) {
     firebase.database().ref('games/' + key).once("value", snapshot => {
         if (snapshot.exists()) {
+            generateRoomCode();
             return true;
         } else {
+            console.log("We will set up the game by calling a function from here.");
             return false;
         }
     });
