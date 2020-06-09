@@ -1,3 +1,3 @@
-var deck = {
-    
-}
+var deck = [
+    {}
+];
