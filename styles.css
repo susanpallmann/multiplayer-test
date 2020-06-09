@@ -46,9 +46,6 @@ h3 {
   height: 65px;
   width: 65px;
 }
-.avatar[character="empty"] {
-  background-image: none;
-}
 #players-menu h4 {
   display: inline-block;
   font-size: 2em;
@@ -56,9 +53,15 @@ h3 {
   margin-top: 0.4em;
   margin-left: 0.2em;
 }
-#players-menu h4[color="empty"] {
+#players-menu[color="empty"] h4 {
   color: #ffffff;
 }
-.avatar[color="empty"] {
+#players-menu[color="empty"] .avatar {
   background-color: #443B3B;
+}
+#players-menu[avatar="none"] .avatar {
+  background-image: none;
+}
+#p1 .avatar {
+  background-color: #CB91FF;
 }
