@@ -53,7 +53,6 @@ $(document).ready(function() {
         var key = $('body').attr('room-key');
         var ref = firebase.database().ref('games/' + key);
         var newChildRef = playerRef.update({phase: 2});
-        trackGamePhase(key);
         event.preventDefault();
     });
 });
@@ -139,6 +138,7 @@ function sendPlayerValues(key, user, playerKey, playerNum, playerColor, chosenAv
     avatarValues[chosenAvatar] = false;
     var avatarChildRef = avatarUpdate.update(avatarValues);
     changePlayerCount(key, playerNum);
+    trackGamePhase(key);
     checkAvatars(key);
 }
 function joinGame(key, user, num) {
