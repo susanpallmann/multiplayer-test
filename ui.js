@@ -7,6 +7,15 @@ $(document).ready(function() {
         event.preventDefault();
     });
 });
+function trackGamePhase(key) {
+    var phase = firebase.database().ref('games/' + key + '/phase');
+    phase.on('value', function(snapshot) {
+        updatePhase(snapshot.val());
+    });
+}
+function updatePhase(val) {
+    $('body').attr('phase', val);
+}
 function updateNumPlayers(key) {
   var playerCount = firebase.database().ref('games/' + key + '/playerCount');
   playerCount.on('value', function(snapshot) {
@@ -120,6 +129,7 @@ function lobbySetup(key) {
     var avatarsRef = firebase.database().ref('games/' + key + '/avatars');
     var avatarsChildRef = avatarsRef.set(avatarValues);
     // TODO: Initialize some trackers now that we have a room code (like game phase)
+    trackGamePhase(key);
     updateNumPlayers(key);
     updatePlayers(key);
 }
