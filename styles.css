@@ -128,7 +128,7 @@ body div #avatar-selector .avatar.selected {
   border: 2px solid #FFCB7B;
   box-sizing: border-box;
 }
-body div #avatar-selector.unavailable {
+body div #avatar-selector .avatar.unavailable {
   background-color: #443B3B;
   opacity: 0.5em;
 }
