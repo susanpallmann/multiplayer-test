@@ -199,6 +199,8 @@ input[type="number"], input[type="text"] {
   -webkit-appearance: textfield;
   -moz-appearance: textfield;
   appearance: textfield;
+  margin-top: 0.4em;
+  margin-bottom: 0.4em;
 }
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 
