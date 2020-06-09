@@ -37,8 +37,8 @@ $(document).ready(function() {
         } else if ($(this).attr('selected') === "true") {
         } else {
             var oldAvatar = $('.avatar[selected="true"]').attr('avatar');
-            $('.avatar[selected="true"]').attr('selected','false');
-            $(this).attr('selected','true');
+            $('.avatar[selected="true"]').attr('selected','"false"');
+            $(this).attr('selected','"true"');
             var ref = firebase.database().ref('games/' + key + '/avatars');
             var avatarChange = {};
             avatarChange[avatarName] = false;
@@ -220,9 +220,9 @@ function checkAvatars(key) {
 function displayAvatar(avatar, value) {
     console.log("this ran");
     if (value) {
-        $('#' + avatar).attr('unavailable','false');
+        $('#' + avatar).attr('unavailable','"false"');
     } else {
-        $('#' + avatar).attr('unavailable','true');
+        $('#' + avatar).attr('unavailable','"true"');
     }
 }
 // Damn
