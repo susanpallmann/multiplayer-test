@@ -32,6 +32,7 @@ $(document).ready(function() {
     });
     $('.avatar').click(function() {
         var avatarName = $(this).attr('avatar');
+        var key = $('body').attr('room-key');
         if ($(this).attr('unavailable') === "true") {
         } else if ($(this).attr('selected') === "true") {
         } else {
@@ -128,6 +129,7 @@ function joinGame(key, user, num) {
     var playerNum = num + 1;
     var playerKey = "player" + playerNum;
     $('body').attr('player', playerKey);
+    $('body').attr('room-key', key);
     var playerColor;
     switch(playerNum) {
         case 1:
