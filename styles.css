@@ -123,3 +123,27 @@ h3 {
   background-color: #443B3B;
   margin-right: 0.4em;
 }
+body[color="purple"] #avatar-selector .avatar {
+  background-color: #CB91FF;
+}
+body[color="blue"] #avatar-selector .avatar {
+  background-color: #87D8E5;
+}
+body[color="green"] #avatar-selector .avatar {
+  background-color: #88E587;
+}
+body[color="yellow"] #avatar-selector .avatar {
+  background-color: #FFD088;
+}
+body[color="red"] #avatar-selector .avatar {
+  background-color: #FF7A7A;
+}
+body[color="pink"] #avatar-selector .avatar {
+  background-color: #FFA7D3;
+}
+body[color="white"] #avatar-selector .avatar {
+  background-color: #FFF3E1;
+}
+body[color="teal"] #avatar-selector .avatar {
+  background-color: #87E9CC;
+}
