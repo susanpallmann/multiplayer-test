@@ -52,7 +52,7 @@ function validateKey(key, user) {
     var ref = firebase.database().ref('games/' + key);
     ref.once('value', function(snapshot) {
         if (snapshot.exists()) {
-            var directory = snapshot();
+            var directory = snapshot;
             var count = directory.child("playerCount").val();
             var phase = directory.child("phase").val();
             if (count >= 8) {
