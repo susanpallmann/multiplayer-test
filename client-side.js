@@ -33,16 +33,16 @@ $(document).ready(function() {
     $('.avatar').click(function() {
         var avatarName = $(this).attr('avatar');
         var key = $('body').attr('room-key');
-        if ($(this).attr('unavailable') === true) {
-        } else if ($(this).attr('selected') === true) {
+        if ($(this).attr('unavailable') === 'yes') {
+        } else if ($(this).attr('selected') === 'yes') {
         } else {
-            var oldAvatar = $('.avatar[selected="true"]').attr('avatar');
-            $('.avatar[selected="true"]').attr('selected', false);
-            $(this).attr('selected',true);
+            var oldAvatar = $('.avatar[selected="yes"]').attr('avatar');
+            $('.avatar[selected="yes"]').attr('selected', 'no');
+            $(this).attr('selected', 'yes');
             var ref = firebase.database().ref('games/' + key + '/avatars');
             var avatarChange = {};
-            avatarChange[avatarName] = false;
-            avatarChange[oldAvatar] = true;
+            avatarChange[avatarName] = 'no';
+            avatarChange[oldAvatar] = 'yes';
             var newChildRef = ref.update(avatarChange);
             var playerName = $('body').attr('player');
             var playerRef = firebase.database().ref('games/' + key + '/' + playerName);
@@ -116,7 +116,7 @@ function sendPlayerValues(key, user, playerKey, playerNum, playerColor, chosenAv
         avatar: chosenAvatar,
         color: playerColor,
     };
-    $('#' + chosenAvatar).attr('selected',true);
+    $('#' + chosenAvatar).attr('selected', 'yes');
     var ref = firebase.database().ref('games/' + key + '/' + playerKey);
     var newChildRef = ref.set(values);
     var avatarUpdate = firebase.database().ref('games/' + key + '/avatars');
