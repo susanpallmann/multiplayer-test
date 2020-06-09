@@ -134,7 +134,7 @@ function generateRoomCode() {
     function generateDigits(code) {
         if (code.length < 4) {
             var tempNum = Math.floor(Math.random() * 25);
-            var tempLetter = String.fromCharCode(97 + tempNum);
+            var tempLetter = String.fromCharCode(65 + tempNum);
             roomCode =  code + tempLetter;
             console.log(roomCode);
             generateDigits(roomCode);
