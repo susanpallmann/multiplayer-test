@@ -9,7 +9,7 @@
 /* 'Discount Bootstrap' Responsive Grid (Mobile First) */
 .container {
   margin:auto;
-  max-width: 800px;
+  max-width: 1000px;
 }
 .container-fluid {
   width: 100%;
