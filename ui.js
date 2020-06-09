@@ -1,6 +1,5 @@
 // Some global variables to track important things that we're going to use a lot, like the number of players.
 var numPlayers;
-var cleanDeck = [];
 var playDeck = [];
 
 $(document).ready(function() {
