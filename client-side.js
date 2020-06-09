@@ -187,7 +187,8 @@ function changePlayerCount(key, playerNum) {
 function displayAvatar(avatar, bool) {
     console.log("this ran");
     var name = avatar;
-    if (bool == "true") {
+    console.log(bool);
+    if (bool) {
         $('#' + name).removeClass('unavailable');
     } else {
         $('#' + name).addClass('unavailable');
