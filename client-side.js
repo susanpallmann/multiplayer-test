@@ -94,6 +94,7 @@ function validateUser(key, user) {
 function joinGame(key, user, num) {
     var playerNum = num + 1;
     var playerKey = "player" + playerNum;
+    $('body').attr('player', playerKey);
     var playerColor;
     switch(playerNum) {
         case 1:
@@ -123,6 +124,7 @@ function joinGame(key, user, num) {
         default:
             break;
            }
+    $('body').attr('color', playerColor);
     var randAvatar = Math.floor(Math.random() * 8) + 1;
     var chosenAvatar = "avatar" + randAvatar;
     var values = {
