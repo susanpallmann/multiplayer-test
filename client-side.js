@@ -41,8 +41,8 @@ $(document).ready(function() {
             $(this).addClass('selected');
             var ref = firebase.database().ref('games/' + key + '/avatars');
             var avatarChange = {};
-            avatarChange[avatarName] = 'no';
-            avatarChange[oldAvatar] = 'yes';
+            avatarChange[avatarName] = false;
+            avatarChange[oldAvatar] = true;
             var newChildRef = ref.update(avatarChange);
             var playerName = $('body').attr('player');
             var playerRef = firebase.database().ref('games/' + key + '/' + playerName);
