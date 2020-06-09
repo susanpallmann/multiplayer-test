@@ -38,3 +38,15 @@ h3 {
 .button:hover {
   background-color: #8A548D;
 }
+.player-tile {
+  width: 50%;
+  display: inline-block;
+}
+.avatar[character="empty"] {
+  background-color: #443B3B;
+  height: 65px;
+  width: 65px;
+}
+#players-menu h4[color="empty"] {
+  color: #ffffff;
+}
