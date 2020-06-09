@@ -33,12 +33,12 @@ $(document).ready(function() {
     $('.avatar').click(function() {
         var avatarName = $(this).attr('avatar');
         var key = $('body').attr('room-key');
-        if ($(this).attr('unavailable') === "true") {
-        } else if ($(this).attr('selected') === "true") {
+        if ($(this).attr('unavailable') === true) {
+        } else if ($(this).attr('selected') === true) {
         } else {
             var oldAvatar = $('.avatar[selected="true"]').attr('avatar');
-            $('.avatar[selected="true"]').attr('selected','"false"');
-            $(this).attr('selected','"true"');
+            $('.avatar[selected="true"]').attr('selected', false);
+            $(this).attr('selected',true);
             var ref = firebase.database().ref('games/' + key + '/avatars');
             var avatarChange = {};
             avatarChange[avatarName] = false;
@@ -116,7 +116,7 @@ function sendPlayerValues(key, user, playerKey, playerNum, playerColor, chosenAv
         avatar: chosenAvatar,
         color: playerColor,
     };
-    $('#' + chosenAvatar).attr('selected','"true"');
+    $('#' + chosenAvatar).attr('selected',true);
     var ref = firebase.database().ref('games/' + key + '/' + playerKey);
     var newChildRef = ref.set(values);
     var avatarUpdate = firebase.database().ref('games/' + key + '/avatars');
@@ -221,9 +221,9 @@ function checkAvatars(key) {
 function displayAvatar(avatar, value) {
     console.log("this ran");
     if (value) {
-        $('#' + avatar).attr('unavailable','"false"');
+        $('#' + avatar).attr('unavailable', false);
     } else {
-        $('#' + avatar).attr('unavailable','"true"');
+        $('#' + avatar).attr('unavailable', true);
     }
 }
 // Damn
