@@ -47,7 +47,7 @@ $(document).ready(function() {
             var playerRef = firebase.database().ref('games/' + key + '/' + playerName);
             var newChildRef = ref.update({avatar: avatarName});
         }
-    }
+    });
 });
 
 function updateNumPlayers(key) {
@@ -179,4 +179,45 @@ function changePlayerCount(key, playerNum) {
     };
     var ref = firebase.database().ref('games/' + key);
     var newChildRef = ref.update(values);
+}
+function checkAvatars() {
+    var avatar1 = firebase.database().ref('games/' + key + '/avatars/avatar1');
+    avatar1.on('value', function(snapshot) {
+        displayAvatar('avatar1', snapshot);
+    });
+    var avatar2 = firebase.database().ref('games/' + key + '/avatars/avatar2');
+    avatar2.on('value', function(snapshot) {
+        displayAvatar('avatar2', snapshot);
+    });
+    var avatar3 = firebase.database().ref('games/' + key + '/avatars/avatar3');
+    avatar3.on('value', function(snapshot) {
+        displayAvatar('avatar3', snapshot);
+    });
+    var avatar4 = firebase.database().ref('games/' + key + '/avatars/avatar4');
+    avatar4.on('value', function(snapshot) {
+        displayAvatar('avatar4', snapshot);
+    });
+    var avatar5 = firebase.database().ref('games/' + key + '/avatars/avatar5');
+    avatar5.on('value', function(snapshot) {
+        displayAvatar('avatar5', snapshot);
+    });
+    var avatar6 = firebase.database().ref('games/' + key + '/avatars/avatar6');
+    avatar6.on('value', function(snapshot) {
+        displayAvatar('avatar6', snapshot);
+    });
+    var avatar7 = firebase.database().ref('games/' + key + '/avatars/avatar7');
+    avatar7.on('value', function(snapshot) {
+        displayAvatar('avatar7', snapshot);
+    });
+    var avatar8 = firebase.database().ref('games/' + key + '/avatars/avatar8');
+    avatar8.on('value', function(snapshot) {
+        displayAvatar('avatar8', snapshot);
+    });
+}
+function displayAvatar(avatar, value) {
+    if (value) {
+        $('#' + avatar).attr('unavailable','false');
+    } else {
+        $('#' + avatar).attr('unavailable','true');
+    }
 }
