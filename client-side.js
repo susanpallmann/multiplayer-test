@@ -52,9 +52,9 @@ function validateKey(key, user) {
     var ref = firebase.database().ref('games/' + key);
     ref.once('value', function(snapshot) {
         if (snapshot.exists()) {
-            var directory = snapshot.val();
-            var count = directory.child("playerCount").val();
-            var phase = directory.child("phase").val();
+            var directory = snapshot();
+            var count = directory.child("playerCount").key();
+            var phase = directory.child("phase").key();
             if (count >= 8) {
                 $('.error').remove();
                 $('#enter-game').append('<p class="error">Sorry, this lobby is full.</p>');
