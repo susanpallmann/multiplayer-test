@@ -30,6 +30,24 @@ $(document).ready(function() {
         }
         event.preventDefault();
     });
+    $('.avatar').click(function() {
+        var avatarName = $(this).attr('avatar');
+        if ($(this).attr('unavailable') === "true") {
+        } else if ($(this).attr('selected') === "true") {
+        } else {
+            var oldAvatar = $('.avatar[selected="true"]').attr('avatar');
+            $('.avatar[selected="true"]').attr('selected','false');
+            $(this).attr('selected','true');
+            var ref = firebase.database().ref('games/' + key + '/avatars');
+            var avatarChange = {};
+            avatarChange[avatarName] = false;
+            avatarChange[oldAvatar] = true;
+            var newChildRef = ref.update(avatarChange);
+            var playerName = $('body').attr('player');
+            var playerRef = firebase.database().ref('games/' + key + '/' + playerName);
+            var newChildRef = ref.update({avatar: avatarName});
+        }
+    }
 });
 
 function updateNumPlayers(key) {
