@@ -238,3 +238,23 @@ input[type="number"]:active {
 .header {
   display: inline-block;
 }
+#card {
+  background-color: #504646;
+  border-radius: 13px;
+}
+#card .border {
+  border: 2px solid #FFCB7B;
+  border-radius: 4px;
+}
+#card-sell {
+  color: #FFCB7B;
+}
+#card-score {
+  color: #ffffff;
+}
+#card-title {
+  color: #ffffff;
+}
+card-desc {
+  color: #ffffff;
+}
