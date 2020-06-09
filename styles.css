@@ -6,6 +6,8 @@ body {
 p.error {
   background-color: rgba(255, 125, 125, 0.2);
   border: 2px solid #ff6666;
+  padding: 0.2em 0.5em;
+  color: #ffffff;
 }
 h1, h2, h3, h4, h5 {
   font-family: 'medula one', serif;
