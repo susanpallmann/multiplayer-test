@@ -221,7 +221,7 @@ function checkAvatars(key) {
 function displayAvatar(avatar, value) {
     console.log("this ran");
     if (value) {
-        $('#' + avatar).removeClass('unavailable'');
+        $('#' + avatar).removeClass('unavailable');
     } else {
         $('#' + avatar).addClass('unavailable');
     }
