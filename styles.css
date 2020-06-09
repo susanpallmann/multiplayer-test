@@ -263,3 +263,12 @@ input[type="number"]:active {
 #card-desc {
   color: #ffffff;
 }
+#card-image {
+  max-height: 200px;
+  max-width: 200px;
+  display: block;
+}
+#card-image img {
+  height: 100%;
+  width: 100%;
+}
