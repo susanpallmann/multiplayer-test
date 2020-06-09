@@ -121,6 +121,7 @@ function lobbySetup(key) {
     var avatarsChildRef = avatarsRef.set(avatarValues);
     // TODO: Initialize some trackers now that we have a room code (like game phase)
     updateNumPlayers(key);
+    updatePlayers(key);
 }
 
 function updatePlayers(key) {
