@@ -1,13 +1,17 @@
+// Some global variables to track important things that we're going to use a lot, like the number of players.
+var numPlayers;
+
 $(document).ready(function() {
     $('#start-game').submit(function(event) {
         generateRoomCode();
         event.preventDefault();
     });
 });
-function getPlayerCount(key, user) {
-  var playerCount = firebase.database().ref('games/' + key + '/numPlayers');
-  playerCount.once('value', function(snapshot) {
-  addPlayer(snapshot.val(), user, key);
+function updateNumPlayers(key) {
+  var playerCount = firebase.database().ref('games/' + key + '/playerCount');
+  playerCount.on('value', function(snapshot) {
+      numPlayers = snapshot.val();
+      console.log("this ran");
   });
 }
 function addPlayer(num, user, key) {
@@ -164,4 +168,5 @@ function lobbySetup(key) {
     var ref = firebase.database().ref('games/' + key);
     var newChildRef = ref.set(values);
     // TODO: Initialize some trackers now that we have a room code (like game phase)
+    updateNumPlayers(key);
 }
