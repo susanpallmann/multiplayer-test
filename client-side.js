@@ -133,7 +133,7 @@ function joinGame(key, user, num) {
     var ref = firebase.database().ref('games/' + key + '/' + playerKey);
     var newChildRef = ref.set(values);
     var avatarUpdate = firebase.database().ref('games/' + key + '/avatars');
-    var avatarChildRef = ref.update({chosenAvatar: false});
+    var avatarChildRef = avatarUpdate.update({chosenAvatar: false});
     changePlayerCount(key, playerNum);
 }
 function changePlayerCount(key, playerNum) {
