@@ -184,6 +184,15 @@ function changePlayerCount(key, playerNum) {
     var ref = firebase.database().ref('games/' + key);
     var newChildRef = ref.update(values);
 }
+function displayAvatar(avatar, value) {
+    console.log("this ran");
+    var name = avatar;
+    if (value) {
+        $('#' + name).removeClass('unavailable');
+    } else {
+        $('#' + name).addClass('unavailable');
+    }
+}
 function checkAvatars(key) {
     var avatar1 = firebase.database().ref('games/' + key + '/avatars/avatar1');
     avatar1.on('value', function(snapshot) {
@@ -217,13 +226,5 @@ function checkAvatars(key) {
     avatar8.on('value', function(snapshot) {
         displayAvatar('avatar8', snapshot);
     });
-}
-function displayAvatar(avatar, value) {
-    console.log("this ran");
-    if (value) {
-        $('#' + avatar).removeClass('unavailable');
-    } else {
-        $('#' + avatar).addClass('unavailable');
-    }
 }
 // Damn
