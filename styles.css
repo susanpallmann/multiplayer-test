@@ -41,7 +41,7 @@ h3 {
 .player-tile {
   width: 50%;
   display: inline-block;
-  padding: 0.4em;
+  padding: 0.4em 0.4em 0.4em 0;
   box-sizing: border-box;
 }
 .avatar {
@@ -56,10 +56,10 @@ h3 {
   margin-top: 0.4em;
   margin-left: 0.2em;
 }
-#players-menu[color="empty"] h4 {
+#players-menu .player-tile.empty h4 {
   color: #ffffff;
 }
-#players-menu[color="empty"] .avatar {
+#players-menu .player-tile.empty .avatar {
   background-color: #443B3B;
 }
 #players-menu .player-tile[character="none"] .avatar {
