@@ -52,7 +52,7 @@ $(document).ready(function() {
     $('#begin-play').submit(function(event) {
         var key = $('body').attr('room-key');
         var ref = firebase.database().ref('games/' + key);
-        var newChildRef = playerRef.update({phase: 2});
+        var newChildRef = ref.update({phase: 2});
         event.preventDefault();
     });
 });
