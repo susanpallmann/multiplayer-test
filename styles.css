@@ -116,3 +116,9 @@ h3 {
 #players-menu .player-tile[color="teal"] h4 {
   color: #87E9CC;
 }
+#avatar-selector .avatar {
+  height: 50px;
+  width: 50px;
+  display: inline-block;
+  background-color: #443B3B;
+}
