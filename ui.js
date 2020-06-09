@@ -163,10 +163,22 @@ function lobbySetup(key) {
         player7: null,
         player8: null,
     };
+    var avatarValues = {
+        avatar1: true,
+        avatar2: true,
+        avatar3: true,
+        avatar4: true,
+        avatar5: true,
+        avatar6: true,
+        avatar7: true,
+        avatar8: true,
+    };
     $('#room-code').text(key);
     // Sends new game to the database stored under the room key.
     var ref = firebase.database().ref('games/' + key);
     var newChildRef = ref.set(values);
+    var avatarsRef = firebase.database().ref('games/' + key + '/avatars');
+    var avatarsChildRef = ref.set(avatarValues);
     // TODO: Initialize some trackers now that we have a room code (like game phase)
     updateNumPlayers(key);
 }
