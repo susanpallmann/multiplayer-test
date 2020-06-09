@@ -49,8 +49,23 @@ $(document).ready(function() {
             var newChildRef = playerRef.update({avatar: avatarName});
         }
     });
+    $('#begin-play').submit(function(event) {
+        var key = $('body').attr('room-key');
+        var ref = firebase.database().ref('games/' + key);
+        var newChildRef = playerRef.update({phase: 2});
+        trackGamePhase(key);
+        event.preventDefault();
+    });
 });
-
+function trackGamePhase(key) {
+    var phase = firebase.database().ref('games/' + key + '/phase');
+    phase.on('value', function(snapshot) {
+        updatePhase(snapshot.val());
+    });
+}
+function updatePhase(val) {
+    $('body').attr('phase', val);
+}
 function updateNumPlayers(key) {
   var playerCount = firebase.database().ref('games/' + key + '/playerCount');
   playerCount.on('value', function(snapshot) {
