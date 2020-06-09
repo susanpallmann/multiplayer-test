@@ -126,6 +126,7 @@ h3 {
 }
 body div #avatar-selector .avatar[selected="true"] {
   border: 2px solid #FFCB7B;
+  box-sizing: border-box;
 }
 body div #avatar-selector .avatar[unavailable="true"] {
   background-color: #443B3B;
