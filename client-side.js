@@ -123,13 +123,17 @@ function joinGame(key, user, num) {
         default:
             break;
            }
+    var randAvatar = Math.floor(Math.random() * 8) + 1;
+    var chosenAvatar = "avatar" + randAvatar;
     var values = {
         username: user,
-        avatar: "none",
+        avatar: chosenAvatar,
         color: playerColor,
     };
     var ref = firebase.database().ref('games/' + key + '/' + playerKey);
     var newChildRef = ref.set(values);
+    var avatarUpdate = firebase.database().ref('games/' + key + '/avatars');
+    var avatarChildRef = ref.update({chosenAvatar: false});
     changePlayerCount(key, playerNum);
 }
 function changePlayerCount(key, playerNum) {
