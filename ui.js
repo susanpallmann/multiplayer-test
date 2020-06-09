@@ -252,7 +252,7 @@ function timesUpCodes(code) {
 }
 function startTimer(duration, code) {
     var timer = duration, seconds;
-    setInterval(function () {
+    var thisTimer = setInterval(function () {
         seconds = parseInt(timer % 60, 10);
         seconds = seconds < 10 ? "0" + seconds : seconds;
         $('#timer').css('display','block');
@@ -260,6 +260,7 @@ function startTimer(duration, code) {
         if (--timer < 0) {
             $('#timer').css('display','none');
             timesUpCodes(code);
+            clearInterval(thisTimer);
         }
     }, 1000);
 }
