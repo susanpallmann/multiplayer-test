@@ -18,6 +18,9 @@ h2 {
 h1 {
   font-size: 4em;
 }
+h1#room-code {
+  color: #ffffff;
+}
 h3 {
   font-size: 2em;
 }
