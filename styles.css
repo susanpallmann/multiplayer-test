@@ -237,6 +237,7 @@ input[type="number"]:active {
 }
 .header {
   display: inline-block;
+  width: 100%;
 }
 #card {
   background-color: #504646;
