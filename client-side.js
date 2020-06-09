@@ -137,5 +137,5 @@ function changePlayerCount(key, playerNum) {
         playerCount: playerNum
     };
     var ref = firebase.database().ref('games/' + key);
-    var newChildRef = ref.set(values);
+    var newChildRef = ref.update(values);
 }
