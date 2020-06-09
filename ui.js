@@ -151,7 +151,7 @@ function generateRoomCode() {
     }
 }
 function verifyRoomCode(key) {
-    firebase.database().ref('games/'key).once("value", snapshot => {
+    firebase.database().ref('games/' + key).once("value", snapshot => {
         if (snapshot.exists()) {
             return true;
         } else {
