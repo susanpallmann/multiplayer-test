@@ -36,8 +36,8 @@ $(document).ready(function() {
         if ($(this).attr('unavailable') === 'yes') {
         } else if ($(this).attr('selected') === 'yes') {
         } else {
-            var oldAvatar = $('.avatar[selected="yes"]').attr('avatar');
-            $('.avatar[selected="yes"]').attr('selected', 'no');
+            var oldAvatar = $('.avatar[selected=yes]').attr('avatar');
+            $('.avatar[selected=yes]').attr('no');
             $(this).attr('selected', 'yes');
             var ref = firebase.database().ref('games/' + key + '/avatars');
             var avatarChange = {};
