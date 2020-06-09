@@ -156,9 +156,9 @@ body[color="white"] #avatar-selector .avatar, body[color="white"] #avatar-select
 body[color="teal"] #avatar-selector .avatar, body[color="teal"] #avatar-selector .avatar.unavailable.selected {
   background-color: #87E9CC;
 }
-#begin-play {
+#vip-only {
   display: none;
 }
-body[player="player1"] #begin-play {
+body[player="player1"] #vip-only {
   display: block;
 }
