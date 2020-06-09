@@ -100,7 +100,9 @@ function sendPlayerValues(key, user, playerKey, playerNum, playerColor, chosenAv
     var ref = firebase.database().ref('games/' + key + '/' + playerKey);
     var newChildRef = ref.set(values);
     var avatarUpdate = firebase.database().ref('games/' + key + '/avatars');
-    var avatarChildRef = avatarUpdate.update({chosenAvatar: false});
+    var avatarValues = {};
+    avatarValues[chosenAvatar] = false;
+    var avatarChildRef = avatarUpdate.update(avatarValues);
     changePlayerCount(key, playerNum);
 }
 function joinGame(key, user, num) {
