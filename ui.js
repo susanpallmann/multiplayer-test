@@ -30,66 +30,6 @@ function addPlayer(num, user, key) {
         $('#enter-game').append('<p class="error">Sorry, this lobby is full.</p>');
     }
 }
-function updateGameSetup(key) {
-  var roomKey = firebase.database().ref('games/' + key + '/roomKey');
-  roomKey.on('value', function(snapshot) {
-  updateRoomKey(snapshot.val());
-  });
-}
-function updateRoomKey(key) {
-    $('#set-room-key').text(key);
-}
-function updatePlayers(key) {
-  var player1 = firebase.database().ref('games/' + key + '/player1');
-  player1.on('value', function(snapshot) {
-    displayPlayer(snapshot.val(), 1);
-  });
-  var player2 = firebase.database().ref('games/' + key + '/player2');
-  player2.on('value', function(snapshot) {
-    displayPlayer(snapshot.val(), 2);
-  });
-  var player3 = firebase.database().ref('games/' + key + '/player3');
-  player3.on('value', function(snapshot) {
-    displayPlayer(snapshot.val(), 3);
-  });
-  var player4 = firebase.database().ref('games/' + key + '/player4');
-  player4.on('value', function(snapshot) {
-    displayPlayer(snapshot.val(), 4);
-  });
-}
-function displayPlayer(playername, number) {
-    $('#players #player' + number).text(playername);
-}
-function updatePlayerNumber(key) {
-    var number = firebase.database().ref('games/' + key + '/numPlayers');
-    number.once('value', function(snapshot) {
-      increaseNumber(snapshot.val(), key);
-    });
-}
-function increaseNumber(num, key) {
-    var newNumber = {numPlayers: 0};
-    console.log(num);
-    var oldNum = parseInt(num);
-    var mathing = num+1;
-    console.log(mathing);
-    newNumber.numPlayers = mathing;
-    console.log(newNumber);
-    var pathRef = firebase.database().ref('games/' + key);
-    var newChildRef = pathRef.update(newNumber);
-}
-function setupPlaySpace(key, user, num) {
-    $('#username').text(user);
-    $('#username').attr('player',num);
-    $('#entering-key').remove();
-    if (num === 1) {
-        $('.span12').append("<h1>You're the VIP. Hit 'everyone is in' when you're ready to start.</h1>");
-        $('.span12').append('<form id="start game"><input id="start-game" name="start-game" type="submit" value="everyone is in"></form>');
-        $('.row').append('<div class="span12 column" id="playspace"></div>');
-    } else {
-        $('.span12').append('<h1>Sit tight and wait for the game to begin.</h1>');
-        $('.row').append('<div class="span12 column" id="playspace"></div>');
-    }
-}
 // Function to generate a random room code for the start of the game.
 function generateRoomCode() {
     // Starts with an empty string.
@@ -181,4 +121,106 @@ function lobbySetup(key) {
     var avatarsChildRef = ref.set(avatarValues);
     // TODO: Initialize some trackers now that we have a room code (like game phase)
     updateNumPlayers(key);
+}
+
+
+
+
+function updatePlayers(key) {
+    var player1 = firebase.database().ref('games/' + key + '/player1');
+    player1.on('value', function(snapshot) {
+        if (snapshot.exists()) {
+            var directory = snapshot;
+            var user = directory.child("username").val();
+            var color = directory.child("color").val();
+            var avatar = directory.child("avatar").val();
+            displayPlayer(user, color, avatar);
+        }
+    });
+    var player2 = firebase.database().ref('games/' + key + '/player2');
+    player2.on('value', function(snapshot) {
+        if (snapshot.exists()) {
+            var directory = snapshot;
+            var user = directory.child("username").val();
+            var color = directory.child("color").val();
+            var avatar = directory.child("avatar").val();
+            displayPlayer(user, color, avatar);
+        }
+    });
+    var player3 = firebase.database().ref('games/' + key + '/player3');
+    player3.on('value', function(snapshot) {
+        if (snapshot.exists()) {
+            var directory = snapshot;
+            var user = directory.child("username").val();
+            var color = directory.child("color").val();
+            var avatar = directory.child("avatar").val();
+            displayPlayer(user, color, avatar);
+        }
+    });
+    var player4 = firebase.database().ref('games/' + key + '/player4');
+    player4.on('value', function(snapshot) {
+        if (snapshot.exists()) {
+            var directory = snapshot;
+            var user = directory.child("username").val();
+            var color = directory.child("color").val();
+            var avatar = directory.child("avatar").val();
+            displayPlayer(user, color, avatar);
+        }
+    });
+    var player5 = firebase.database().ref('games/' + key + '/player5');
+    player5.on('value', function(snapshot) {
+        if (snapshot.exists()) {
+            var directory = snapshot;
+            var user = directory.child("username").val();
+            var color = directory.child("color").val();
+            var avatar = directory.child("avatar").val();
+            displayPlayer(user, color, avatar);
+        }
+    });
+    var player6 = firebase.database().ref('games/' + key + '/player6');
+    player6.on('value', function(snapshot) {
+        if (snapshot.exists()) {
+            var directory = snapshot;
+            var user = directory.child("username").val();
+            var color = directory.child("color").val();
+            var avatar = directory.child("avatar").val();
+            displayPlayer(user, color, avatar);
+        }
+    });
+    var player7 = firebase.database().ref('games/' + key + '/player7');
+    player7.on('value', function(snapshot) {
+        if (snapshot.exists()) {
+            var directory = snapshot;
+            var user = directory.child("username").val();
+            var color = directory.child("color").val();
+            var avatar = directory.child("avatar").val();
+            displayPlayer(user, color, avatar);
+        }
+    });
+    var player8 = firebase.database().ref('games/' + key + '/player8');
+    player8.on('value', function(snapshot) {
+        if (snapshot.exists()) {
+            var directory = snapshot;
+            var user = directory.child("username").val();
+            var color = directory.child("color").val();
+            var avatar = directory.child("avatar").val();
+            displayPlayer(user, color, avatar);
+        }
+    });
+}   
+function displayPlayer(user, color, avatar) {   
+    $('#players-menu .player-tile').each(function(index) {
+        if($(this).text().indexOf(user)){
+            $(this).attr('color', color)
+                .text(user)
+                .attr('avatar', avatar);
+            return false;
+        } else if ($(this).hasClass('empty')) {
+            $(this).removeClass('empty');
+            $(this).attr('color', color)
+                .text(user)
+                .attr('avatar', avatar);
+            return false;
+        }
+    }
 }
