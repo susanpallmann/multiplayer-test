@@ -21,8 +21,9 @@ $(document).ready(function() {
                     $('#enter-game').append('<p class="error">Please enter a valid username, letters only.</p>');
                 } else {
                     $('.error').remove();
-                    console.log("username passed validation");
+                    console.log("username passed validation up to this point");
                     updateNumPlayers(key);
+                    console.log(numPlayers);
                 }
             }
         }
