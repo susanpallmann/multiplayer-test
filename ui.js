@@ -208,7 +208,7 @@ function updatePlayers(key) {
 }   
 function displayPlayer(user, color, avatar) {   
     $('.player-tile').each(function(index) {
-        if ($(this).find('h4').text().indexOf(user)) {
+        if ($(this).find('h4').text() === user) {
             console.log('this ran 1');
             $(this).removeClass('empty');
             $(this).attr('color', color)
