@@ -39,6 +39,14 @@ function updateNumPlayers(key) {
       console.log("this ran");
   });
 }
+function getNumPlayers(key, user) {
+  var playerCount = firebase.database().ref('games/' + key + '/playerCount');
+  playerCount.once('value', function(snapshot) {
+      numPlayers = snapshot.val();
+      updateNumPlayers(key);
+      joinGame(key, user, numPlayers);
+  });
+}
 
 function validateUsername(username) {
     if (!/^[a-zA-Z]*$/g.test(username)) {
@@ -74,12 +82,60 @@ function validateKey(key, user) {
 
 function validateUser(key, user) {
     var ref = firebase.database().ref('games/' + key);
-    ref.orderByChild("name").equalTo(user).once("value",snapshot => {
+    ref.orderByChild("username").equalTo(user).once("value",snapshot => {
         if (snapshot.exists()){
             $('.error').remove();
             $('#enter-game').append('<p class="error">This username has already been taken.</p>');
         } else {
-            console.log("Join totally successful, username and key both");
+            getNumPlayers(key, user);
         }
     });
+}
+function joinGame(key, user, num) {
+    var playerNum = num + 1;
+    var playerKey = "player" + playerNum;
+    var playerColor;
+    switch(playerNum) {
+        case 1:
+            playerColor = "purple";
+            break;
+        case 2:
+            playerColor = "blue";
+            break;
+        case 3:
+            playerColor = "green";
+            break;
+        case 4:
+            playerColor = "yellow";
+            break;
+        case 5:
+            playerColor = "red";
+            break;
+        case 6:
+            playerColor = "pink";
+            break;
+        case 7:
+            playerColor = "white";
+            break;
+        case 8:
+            playerColor = "teal";
+            break;
+        default:
+            break;
+           }
+    var values = {
+        username: user,
+        avatar: "none",
+        color: playerColor,
+    };
+    var ref = firebase.database().ref('games/' + key + '/playerKey');
+    var newChildRef = ref.set(values);
+    changePlayerCount(key, playerNum);
+}
+function changePlayerCount(key, playerNum) {
+    var values = {
+        playerCount: playerNum
+    };
+    var ref = firebase.database().ref('games/' + key);
+    var newChildRef = ref.set(values);
 }
