@@ -118,13 +118,10 @@ function lobbySetup(key) {
     var ref = firebase.database().ref('games/' + key);
     var newChildRef = ref.set(values);
     var avatarsRef = firebase.database().ref('games/' + key + '/avatars');
-    var avatarsChildRef = ref.set(avatarValues);
+    var avatarsChildRef = avatarsRef.set(avatarValues);
     // TODO: Initialize some trackers now that we have a room code (like game phase)
     updateNumPlayers(key);
 }
-
-
-
 
 function updatePlayers(key) {
     var player1 = firebase.database().ref('games/' + key + '/player1');
