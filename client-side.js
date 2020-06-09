@@ -9,7 +9,7 @@ function updateNumPlayers(key) {
   });
 }
 
-$(document).onbeforeunload(function() {
+window.onbeforeunload(function() {
     // Detects that the user is leaving. We'll need to do some stuff.
 });
 $(document).ready(function() {
