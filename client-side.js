@@ -197,35 +197,35 @@ function displayAvatar(avatar, bool) {
 function checkAvatars(key) {
     var avatar1 = firebase.database().ref('games/' + key + '/avatars/avatar1');
     avatar1.on('value', function(snapshot) {
-        displayAvatar('avatar1', snapshot);
+        displayAvatar('avatar1', snapshot.val());
     });
     var avatar2 = firebase.database().ref('games/' + key + '/avatars/avatar2');
     avatar2.on('value', function(snapshot) {
-        displayAvatar('avatar2', snapshot);
+        displayAvatar('avatar2', snapshot.val());
     });
     var avatar3 = firebase.database().ref('games/' + key + '/avatars/avatar3');
     avatar3.on('value', function(snapshot) {
-        displayAvatar('avatar3', snapshot);
+        displayAvatar('avatar3', snapshot.val());
     });
     var avatar4 = firebase.database().ref('games/' + key + '/avatars/avatar4');
     avatar4.on('value', function(snapshot) {
-        displayAvatar('avatar4', snapshot);
+        displayAvatar('avatar4', snapshot.val());
     });
     var avatar5 = firebase.database().ref('games/' + key + '/avatars/avatar5');
     avatar5.on('value', function(snapshot) {
-        displayAvatar('avatar5', snapshot);
+        displayAvatar('avatar5', snapshot.val());
     });
     var avatar6 = firebase.database().ref('games/' + key + '/avatars/avatar6');
     avatar6.on('value', function(snapshot) {
-        displayAvatar('avatar6', snapshot);
+        displayAvatar('avatar6', snapshot.val());
     });
     var avatar7 = firebase.database().ref('games/' + key + '/avatars/avatar7');
     avatar7.on('value', function(snapshot) {
-        displayAvatar('avatar7', snapshot);
+        displayAvatar('avatar7', snapshot.val());
     });
     var avatar8 = firebase.database().ref('games/' + key + '/avatars/avatar8');
     avatar8.on('value', function(snapshot) {
-        displayAvatar('avatar8', snapshot);
+        displayAvatar('avatar8', snapshot.val());
     });
 }
 // Damn
