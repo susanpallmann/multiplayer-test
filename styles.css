@@ -175,3 +175,10 @@ body[phase="2"] #phase-2 {
   display: block;
 }
 /* Test */
+#timer {
+  font-size: 3em;
+  font-family: 'medula one', serif;
+  position: absolute;
+  top: 2em;
+  left: 2em;
+}
