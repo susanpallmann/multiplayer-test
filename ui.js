@@ -217,6 +217,7 @@ function displayPlayer(user, color, avatar) {
             return false;
         } else if ($(this).hasClass('empty')) {
             console.log('this ran 2');
+            $(this).removeClass('empty');
             $(this).attr('color', color)
                 .attr('avatar', avatar);
             $(this).find('h4').text(user);
