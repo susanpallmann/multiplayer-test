@@ -46,7 +46,7 @@ $(document).ready(function() {
             var newChildRef = ref.update(avatarChange);
             var playerName = $('body').attr('player');
             var playerRef = firebase.database().ref('games/' + key + '/' + playerName);
-            var newChildRef = ref.update({avatar: avatarName});
+            var newChildRef = playerRef.update({avatar: avatarName});
         }
     });
 });
@@ -218,6 +218,7 @@ function checkAvatars(key) {
     });
 }
 function displayAvatar(avatar, value) {
+    console.log("this ran");
     if (value) {
         $('#' + avatar).attr('unavailable','false');
     } else {
