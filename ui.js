@@ -207,17 +207,17 @@ function updatePlayers(key) {
     });
 }   
 function displayPlayer(user, color, avatar) {   
-    $('#players-menu .player-tile').each(function(index) {
-        if($(this).text().indexOf(user)){
-            $(this).attr('color', color)
-                .text(user)
-                .attr('avatar', avatar);
-            return false;
-        } else if ($(this).hasClass('empty')) {
+    $('.player-tile').each(function(index) {
+        if ($(this).find('h4').text().indexOf(user)) {
             $(this).removeClass('empty');
             $(this).attr('color', color)
-                .text(user)
                 .attr('avatar', avatar);
+            $(this).find('h4').text(user);
+            return false;
+        } else if ($(this).hasClass('empty')) {
+            $(this).attr('color', color)
+                .attr('avatar', avatar);
+            $(this).find('h4').text(user);
             return false;
         }
     });
