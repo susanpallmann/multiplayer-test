@@ -51,8 +51,13 @@ $(document).ready(function() {
     });
     $('#begin-play').submit(function(event) {
         var key = $('body').attr('room-key');
-        var ref = firebase.database().ref('games/' + key);
-        var newChildRef = ref.update({phase: 2});
+        if (numPlayers < 4) {
+            $('.error').remove();
+            $('#begin-play').append('<p class="error">Not enough players. You need 4-8 players for this game.</p>');
+        } else {
+            var ref = firebase.database().ref('games/' + key);
+            var newChildRef = ref.update({phase: 2});
+        }
         event.preventDefault();
     });
 });
