@@ -184,10 +184,10 @@ function changePlayerCount(key, playerNum) {
     var ref = firebase.database().ref('games/' + key);
     var newChildRef = ref.update(values);
 }
-function displayAvatar(avatar, value) {
+function displayAvatar(avatar, bool) {
     console.log("this ran");
     var name = avatar;
-    if (value === "true") {
+    if (bool == "true") {
         $('#' + name).removeClass('unavailable');
     } else {
         $('#' + name).addClass('unavailable');
