@@ -222,5 +222,5 @@ function displayPlayer(user, color, avatar) {
                 .attr('avatar', avatar);
             return false;
         }
-    }
+    });
 }
