@@ -139,6 +139,7 @@ function lobbySetup(key) {
     trackGamePhase(key);
     updateNumPlayers(key);
     updatePlayers(key);
+    deckSetup(key);
 }
 
 function updatePlayers(key) {
@@ -273,4 +274,38 @@ function runTutorial() {
     // Just to see if this works, we'll start a timer too.
     startTimer(30, 1);
     // Then we need to tell the database what capabilities each user's inventory has right now (system TBD).
+}
+function deckSetup(key) {
+    for (i=0; i<deck.length; i++) {
+        var thisObject = deck[i];
+        thisObject[id] = i;
+        console.log(thisObject);
+        playDeck.push(thisObject);
+    }
+    shuffleArray(playDeck);
+    for (i=0; i<playDeck.length; i++) {
+        updateItem(key, 'deck', i, true);
+    }
+}
+    /* Randomize array in-place using Durstenfeld shuffle algorithm */
+function shuffleArray(array) {
+    for (var i = array.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+}
+function updateItem(key, path, id, bool) {
+    var playerRef = firebase.database().ref('games/' + key + '/' + path);
+    // A boolean is passed in to determine if adding or removing the specified item (true=add, false=delete)
+    if (bool) {
+        var values = {};
+        values[id] = id;
+        var newChildRef = playerRef.update(values);
+    } else {
+        var values = {};
+        values[id] = null;
+        var newChildRef = playerRef.update(values);
+    }
 }
