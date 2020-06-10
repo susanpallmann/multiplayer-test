@@ -282,6 +282,10 @@ function loadCardInfo(id) {
         $('#card-effect').text('Effect: ' + effect);
     }
 }
+function loadsmallCard(id,location) {
+    location.append('<div class="item-small" id="' + id + '"></div>');
+    $('#' + id).css('background-image','url("images/cards/' + id + '.png")');
+}
 function hideCard() {
     $('#card-container').css('opacity',0);
     setTimeout(function(){
