@@ -154,6 +154,8 @@ function sendPlayerValues(key, user, playerKey, playerNum, playerColor, chosenAv
     changePlayerCount(key, playerNum);
     trackGamePhase(key);
     checkAvatars(key);
+    updateInventory(key);
+    initiateProfile(key);
 }
 function joinGame(key, user, num) {
     var playerNum = num + 1;
@@ -282,7 +284,18 @@ function loadCardInfo(id) {
         $('#card-effect').text('Effect: ' + effect);
     }
 }
-function loadsmallCard(id,location) {
+
+function updateInventory(key) {
+    var playerKey = $('body').attr('player');
+    var ref = firebase.database().ref('games/' + key + '/' + playerKey + '/items');
+    ref.on('child_added', function(data) {
+        loadSmallCard(data.key,$('#items'))
+    });
+    ref.on('child_removed', function(data) {
+        
+    });
+}
+function loadSmallCard(id,location) {
     location.append('<div class="item-small" id="' + id + '"></div>');
     $('#' + id).css('background-image','url("images/cards/' + id + '.png")');
 }
