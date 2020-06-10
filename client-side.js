@@ -361,11 +361,11 @@ function updateItem(key, player, id, bool) {
     if (bool) {
         var values = {};
         values[id] = id;
-        var newChildRef = playerRef.set(values);
+        var newChildRef = playerRef.update(values);
     } else {
         var values = {};
         values[id] = null;
-        var newChildRef = playerRef.set(values);
+        var newChildRef = playerRef.update(values);
     }
 }
 /*
