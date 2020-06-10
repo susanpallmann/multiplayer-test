@@ -397,6 +397,7 @@ input[type="number"]:active {
   background-color: rgba(29,26,26,0.8);
   padding-top: 1em;
   opacity: 0;
+  display: none;
   z-index: 5;
   -webkit-transition: opacity .2s ease-in-out;
   transition: opacity .2s ease-in-out;
