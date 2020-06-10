@@ -384,3 +384,10 @@ input[type="number"]:active {
   background-size: contain;
   background-repeat: no-repeat;
 }
+#card-container {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  background-color: rgba(29,26,26,0.8);
+  padding-top: 1em;
+}
