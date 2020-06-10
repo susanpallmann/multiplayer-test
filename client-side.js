@@ -215,9 +215,7 @@ function changePlayerCount(key, playerNum) {
 }
 // Updates the visual representation of which avatars are available
 function displayAvatar(avatar, bool) {
-    console.log("this ran");
     var name = avatar;
-    console.log(bool);
     if (bool) {
         $('#' + name).removeClass('unavailable');
     } else {
@@ -360,7 +358,6 @@ function updateItem(key, path, id, bool) {
     }
 }
 $(document).on('click', '.item-small', function(){
-    console.log("this ran at all");
     var id = parseInt($(this).attr('id'));
     loadCardInfo(id);
     showCard();
