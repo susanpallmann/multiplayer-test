@@ -310,7 +310,7 @@ function updateInventory(key) {
 // Visually adds a small card and populates ID/image information
 function loadSmallCard(id,location) {
     location.append('<div class="item-small" id="' + id + '"></div>');
-    var thisItem = cards[id];
+    var thisItem = deck[id];
     var sprite = thisItem.sprite;
     $('#' + id).css('background-image','url("images/cards/' + sprite + '.png")');
 }
