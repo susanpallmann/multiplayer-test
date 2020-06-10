@@ -368,9 +368,11 @@ function updateItem(key, player, id, bool) {
         var newChildRef = playerRef.set(values);
     }
 }
+/*
 $(document).on('click', '.item-small', function(){
     console.log("this ran at all");
     var id = parseInt($(this).attr('id'));
     loadCardInfo(id);
     showCard();
 });
+*/
