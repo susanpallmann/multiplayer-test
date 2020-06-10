@@ -287,7 +287,6 @@ function loadCardInfo(id) {
         $('#card-effect-icon').text('');
         $('#card-effect').text('Effect: ' + effect);
     }
-    return true;
 }
 // Listener for changes in a player's inventory, calls the visual updates needed to reflect the change
 function updateInventory(key) {
