@@ -248,7 +248,7 @@ input[type="number"]:active {
   background-color: #504646;
   border-radius: 13px;
   padding: 8px;
-  max-width: 350px;
+  max-width: 300px;
   margin: auto;
 }
 #card .border {
@@ -269,9 +269,10 @@ input[type="number"]:active {
   color: #ffffff;
 }
 #card-image {
-  max-height: 200px;
-  max-width: 200px;
+  height: 200px;
+  width: 200px;
   display: block;
+  margin: auto;
 }
 #card-image img {
   height: 100%;
