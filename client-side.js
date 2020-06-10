@@ -254,6 +254,7 @@ function checkAvatars(key) {
 function loadCardInfo(id) {
     var myCard = deck[id];
     var sell = myCard.val;
+    var effect = myCard.effect;
     var score = myCard.score;
     var desc = myCard.desc;
     var title = myCard.title;
@@ -263,4 +264,11 @@ function loadCardInfo(id) {
     $('#card-sell').text(sell + ' gold');
     $('#card-image img').attr('src','images/cards/' + id + '.png');
     $('#card-image img').attr('alt','illustration of the ' + title);
+    if (effect === "none") {
+        $('#card-effect-icon').text('');
+        $('#card-effect').text('');
+    } else {
+        $('#card-effect-icon').text('');
+        $('#card-effect').text('Effect: ' + effect);
+    }
 }
