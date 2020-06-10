@@ -402,3 +402,17 @@ input[type="number"]:active {
   -webkit-transition: opacity .2s ease-in-out;
   transition: opacity .2s ease-in-out;
 }
+.item-small {
+  height: 90px;
+  width: 60px;
+  background-color: #645D5D;
+  border-radius: 4px;
+  display: inline-block;
+  margin: 0 0.5em 0.5em 0;
+  border: 1px solid #FFCB7B;
+  box-sizing: border-box;
+  background-image: url('images/cards/0.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position-y: center;
+}
