@@ -66,12 +66,6 @@ $(document).ready(function() {
     $('#card-action-back').click(function(){
         hideCard();
     });
-    $('.item-small').click(function(){
-        console.log("this ran");
-        var id = $(this).attr('id');
-        loadCardInfo(id);
-        showCard();
-    });
 });
 function trackGamePhase(key) {
     var phase = firebase.database().ref('games/' + key + '/phase');
@@ -301,9 +295,11 @@ function updateInventory(key) {
     var ref = firebase.database().ref('games/' + key + '/' + playerKey + '/items');
     ref.on('child_added', function(data) {
         loadSmallCard(data.key,$('#items'));
+        initializeClickListeners();
     });
     ref.on('child_removed', function(data) {
         removeSmallCard(data.key);
+        initializeClickListeners();
     });
 }
 // Visually adds a small card and populates ID/image information
@@ -364,4 +360,12 @@ function updateItem(key, player, id, bool) {
         values[id] = null;
         var newChildRef = playerRef.set(values);
     }
+}
+function initializeClickListeners() {
+    $('.item-small').click(function(){
+        console.log("this ran");
+        var id = $(this).attr('id');
+        loadCardInfo(id);
+        showCard();
+    });
 }
