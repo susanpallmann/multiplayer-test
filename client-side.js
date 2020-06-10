@@ -273,6 +273,7 @@ function loadCardInfo(id) {
     console.log("load card ran");
     var myCard = deck[id];
     var sell = myCard.val;
+    var sprite = myCard.sprite;
     var effect = myCard.effect;
     var score = myCard.score;
     var desc = myCard.desc;
@@ -285,7 +286,7 @@ function loadCardInfo(id) {
         $('#card-score').text(score);
     }
     $('#card-sell').text(sell + ' gold');
-    $('#card-image img').attr('src','images/cards/' + id + '.png');
+    $('#card-image img').attr('src','images/cards/' + sprite + '.png');
     $('#card-image img').attr('alt','illustration of the ' + title);
     if (effect === "none") {
         $('#card-effect-icon').text('');
@@ -309,7 +310,9 @@ function updateInventory(key) {
 // Visually adds a small card and populates ID/image information
 function loadSmallCard(id,location) {
     location.append('<div class="item-small" id="' + id + '"></div>');
-    $('#' + id).css('background-image','url("images/cards/' + id + '.png")');
+    var thisItem = cards[id];
+    var sprite = thisItem.sprite;
+    $('#' + id).css('background-image','url("images/cards/' + sprite + '.png")');
 }
 // Visually removes a small card by ID
 function removeSmallCard(id) {
