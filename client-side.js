@@ -63,10 +63,11 @@ $(document).ready(function() {
     $('#card').click(function(){
         loadCardInfo(0);
     });
-    $('#card-action-back').click(function() {
+    $('#card-action-back').click(function(){
         hideCard();
     });
-    $('.item-small').click(function() {
+    $('.item-small').click(function(){
+        console.log("this ran");
         var id = $(this).attr('id');
         loadCardInfo(id);
         showCard();
