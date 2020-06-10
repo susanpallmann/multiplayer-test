@@ -4,6 +4,10 @@ body {
   color: #F5E2C6;
   margin: 0;
 }
+header {
+  -webkit-transition: color .2s ease-in-out;
+  transition: color .2s ease-in-out;
+}
 p.error {
   background-color: rgba(255, 125, 125, 0.2);
   border: 2px solid #ff6666;
@@ -44,6 +48,8 @@ h3 {
   max-width: 300px;
   box-sizing: border-box;
   text-align: center;
+  -webkit-transition: background-color .2s ease-in-out;
+  transition: background-color .2s ease-in-out;
 }
 .button.short {
   width: auto;
@@ -391,6 +397,7 @@ input[type="number"]:active {
   background-color: rgba(29,26,26,0.8);
   padding-top: 1em;
   opacity: 1;
+  z-index: 5;
   -webkit-transition: opacity .2s ease-in-out;
   transition: opacity .2s ease-in-out;
 }
