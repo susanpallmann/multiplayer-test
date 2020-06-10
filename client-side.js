@@ -66,7 +66,7 @@ $(document).ready(function() {
     $('#card-action-back').click(function(){
         hideCard();
     });
-    $('.item-small').live('click', function(){
+    $('document').on('click', '.item-small', function(){
         var id = $(this).attr('id');
         loadCardInfo(id);
         showCard();
