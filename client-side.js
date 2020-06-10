@@ -267,6 +267,7 @@ function loadCardInfo(id) {
     var effect = myCard.effect;
     var score = myCard.score;
     var desc = myCard.desc;
+    var type = myCard.type;
     var title = myCard.title;
     $('#card-title').text(title);
     $('#card-desc').text(desc);
@@ -275,6 +276,7 @@ function loadCardInfo(id) {
     } else {
         $('#card-score').text(score);
     }
+    $('#card').attr('type',type);
     $('#card-sell').text(sell + ' gold');
     $('#card-image img').attr('src','images/cards/' + sprite + '.png');
     $('#card-image img').attr('alt','illustration of the ' + title);
