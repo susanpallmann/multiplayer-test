@@ -152,6 +152,7 @@ function sendPlayerValues(key, user, playerKey, playerNum, playerColor, chosenAv
     trackGamePhase(key);
     checkAvatars(key);
     updateInventory(key);
+    updateEquipment(key);
     initiateProfile(key);
 }
 function joinGame(key, user, num) {
@@ -291,6 +292,16 @@ function updateInventory(key) {
     var ref = firebase.database().ref('games/' + key + '/' + playerKey + '/items');
     ref.on('child_added', function(data) {
         loadSmallCard(data.key,$('#items'));
+    });
+    ref.on('child_removed', function(data) {
+        removeSmallCard(data.key);
+    });
+}
+function updateEquipment(key) {
+    var playerKey = $('body').attr('player');
+    var ref = firebase.database().ref('games/' + key + '/' + playerKey + '/equipped');
+    ref.on('child_added', function(data) {
+        loadSmallCard(data.key,$('#equipped'));
     });
     ref.on('child_removed', function(data) {
         removeSmallCard(data.key);
