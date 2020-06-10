@@ -253,14 +253,14 @@ function checkAvatars(key) {
 }
 function loadCardInfo(id) {
     var myCard = deck[id];
-    var sell = myCard.sell;
+    var sell = myCard.val;
     var score = myCard.score;
     var desc = myCard.desc;
     var title = myCard.title;
     $('#card-title').text(title);
     $('#card-desc').text(desc);
     $('#card-score').text(score);
-    $('#card-sell').text(sell);
+    $('#card-sell').text(sell + ' gold');
     $('#card-image img').attr('src','images/cards/' + id + '.png');
     $('#card-image img').attr('alt','illustration of the ' + title);
 }
