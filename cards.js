@@ -1,4 +1,4 @@
 var deck = [
-    {id: 0, type: "card", score: 4, title: "example card", desc: "This is an example description; it tells you a tiny bit about this item.", val: 4, effect: "none"},
-    {id: 1, type: "item", score: -2, title: "example item", desc: "This is an example description; it tells you a tiny bit about this item.", val: 3, effect: "none"}
+    {id: 0, type: "card", score: -2, title: "Curse of Weakness", desc: "Your victim feels like their life force has somehow drained a bit.", val: 2, effect: "none"},
+    {id: 1, type: "item", score: 4, title: "Bone Sword of Victory", desc: "... That's pretty gross, actually.", val: 4, effect: "none"}
 ];
