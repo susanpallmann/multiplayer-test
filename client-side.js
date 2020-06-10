@@ -63,6 +63,9 @@ $(document).ready(function() {
     $('#card').click(function(){
         loadCardInfo(0);
     });
+    $('#card-action-back').click(function() {
+        hideCard();
+    });
 });
 function trackGamePhase(key) {
     var phase = firebase.database().ref('games/' + key + '/phase');
@@ -280,9 +283,15 @@ function loadCardInfo(id) {
 }
 function hideCard() {
     $('#card-container').css('opacity',0);
-    return true;
+    setTimeout(function(){
+        $('#card-container').css('display','none');
+        return true;
+    }, 0200);
 }
 function showCard() {
-    $('#card-container').css('opacity',1);
-    return true;
+    $('#card-container').css('display','block');
+    setTimeout(function(){
+        $('#card-container').css('opacity',1);
+        return true;
+    }, 0200);
 }
