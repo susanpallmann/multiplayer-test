@@ -60,6 +60,9 @@ $(document).ready(function() {
         }
         event.preventDefault();
     });
+    $('#card').click(function(){
+        loadCardInfo(0);
+    });
 });
 function trackGamePhase(key) {
     var phase = firebase.database().ref('games/' + key + '/phase');
@@ -248,4 +251,16 @@ function checkAvatars(key) {
         displayAvatar('avatar8', snapshot.val());
     });
 }
-// Damn
+function loadCardInfo(id) {
+    var myCard = deck[id];
+    var sell = myCard.sell;
+    var score = myCard.score;
+    var desc = myCard.desc;
+    var title = myCard.title;
+    $('#card-title').text(title);
+    $('#card-desc').text(desc);
+    $('#card-score').text(score);
+    $('#card-sell').text(sell);
+    $('#card-image img').attr('src','images/cards/' + id + '.png');
+    $('#card-image img').attr('alt','illustration of the ' + title);
+}
