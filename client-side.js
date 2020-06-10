@@ -140,7 +140,7 @@ function sendPlayerValues(key, user, playerKey, playerNum, playerColor, chosenAv
     };
     $('#' + chosenAvatar).addClass('selected');
     $('header').attr('color', playerColor);
-    $('header h2').text(user).css('text-align','center');
+    $('header h2').text(user).css('text-align','center').css('color','#ffffff');
     var ref = firebase.database().ref('games/' + key + '/' + playerKey);
     var newChildRef = ref.set(values);
     var avatarUpdate = firebase.database().ref('games/' + key + '/avatars');
