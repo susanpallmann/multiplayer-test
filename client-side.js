@@ -60,9 +60,6 @@ $(document).ready(function() {
         }
         event.preventDefault();
     });
-    $('#card').click(function(){
-        loadCardInfo(0);
-    });
     $('#card-action-back').click(function(){
         hideCard();
     });
@@ -349,8 +346,8 @@ function initiateProfile(key) {
     });
 }
 // Function to edit inventory items (not equipped items for a specific player)
-function updateItem(key, location, id, bool) {
-    var playerRef = firebase.database().ref('games/' + key + '/' + location);
+function updateItem(key, path, id, bool) {
+    var playerRef = firebase.database().ref('games/' + key + '/' + path);
     // A boolean is passed in to determine if adding or removing the specified item (true=add, false=delete)
     if (bool) {
         var values = {};
