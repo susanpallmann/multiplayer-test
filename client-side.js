@@ -289,15 +289,18 @@ function updateInventory(key) {
     var playerKey = $('body').attr('player');
     var ref = firebase.database().ref('games/' + key + '/' + playerKey + '/items');
     ref.on('child_added', function(data) {
-        loadSmallCard(data.key,$('#items'))
+        loadSmallCard(data.key,$('#items'));
     });
     ref.on('child_removed', function(data) {
-        
+        removeSmallCard(data.key);
     });
 }
 function loadSmallCard(id,location) {
     location.append('<div class="item-small" id="' + id + '"></div>');
     $('#' + id).css('background-image','url("images/cards/' + id + '.png")');
+}
+function removeSmallCard(id) {
+    $('#' + id).remove();
 }
 function hideCard() {
     $('#card-container').css('opacity',0);
