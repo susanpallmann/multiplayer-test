@@ -278,7 +278,7 @@ function runTutorial() {
 function deckSetup(key) {
     for (i=0; i<deck.length; i++) {
         var thisObject = deck[i];
-        thisObject[id] = i;
+        thisObject.id = i;
         console.log(thisObject);
         playDeck.push(thisObject);
     }
