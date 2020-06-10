@@ -264,6 +264,7 @@ function checkAvatars(key) {
 }
 // Populates the card with the information corresponding to that specific ID
 function loadCardInfo(id) {
+    console.log("load card ran");
     var myCard = deck[id];
     var sell = myCard.val;
     var effect = myCard.effect;
