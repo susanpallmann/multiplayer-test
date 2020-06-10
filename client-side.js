@@ -409,6 +409,7 @@ function initializeClickListeners() {
     $('.item-small').click(function(){
         console.log("this ran");
         var id = $(this).attr('id');
+        console.log(id);
         loadCardInfo(id);
         showCard();
     });
