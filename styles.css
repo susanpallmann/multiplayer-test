@@ -433,3 +433,9 @@ input[type="number"]:active {
 #equipment #card-action-equip {
   display: none;
 }
+#card[type="card"] #card-action-equip {
+  display: none;
+}
+#card[type="item"] #card-action-use {
+  display: none;
+}
