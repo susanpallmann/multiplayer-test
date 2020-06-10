@@ -411,7 +411,7 @@ input[type="number"]:active {
   margin: 0 0.5em 0.5em 0;
   border: 1px solid #FFCB7B;
   box-sizing: border-box;
-  background-image: url('images/cards/0.png');
+  background-image: none;
   background-size: contain;
   background-repeat: no-repeat;
   background-position-y: center;
