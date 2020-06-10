@@ -343,3 +343,7 @@ input[type="number"]:active {
   height: 100%;
   width: 100%;
 }
+.avatar[avatar="avatar1"] {
+  background-image: url('images/avatars/avatar1.png');
+  background-width: 100%;
+}
