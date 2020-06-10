@@ -66,6 +66,11 @@ $(document).ready(function() {
     $('#card-action-back').click(function(){
         hideCard();
     });
+    $('.item-small').live('click', function(){
+        var id = $(this).attr('id');
+        loadCardInfo(id);
+        showCard();
+    });
 });
 function trackGamePhase(key) {
     var phase = firebase.database().ref('games/' + key + '/phase');
@@ -295,11 +300,9 @@ function updateInventory(key) {
     var ref = firebase.database().ref('games/' + key + '/' + playerKey + '/items');
     ref.on('child_added', function(data) {
         loadSmallCard(data.key,$('#items'));
-        initializeClickListeners();
     });
     ref.on('child_removed', function(data) {
         removeSmallCard(data.key);
-        initializeClickListeners();
     });
 }
 // Visually adds a small card and populates ID/image information
@@ -360,57 +363,4 @@ function updateItem(key, player, id, bool) {
         values[id] = null;
         var newChildRef = playerRef.set(values);
     }
-}
-function initializeClickListeners() {
-    // Populates the card with the information corresponding to that specific ID
-    function loadCardInfo(id) {
-        var myCard = deck[id];
-        var sell = myCard.val;
-        var effect = myCard.effect;
-        var score = myCard.score;
-        var desc = myCard.desc;
-        var title = myCard.title;
-        $('#card-title').text(title);
-        $('#card-desc').text(desc);
-        if (score > 0) {
-            $('#card-score').text('+' + score);
-        } else {
-            $('#card-score').text(score);
-        }
-        $('#card-sell').text(sell + ' gold');
-        $('#card-image img').attr('src','images/cards/' + id + '.png');
-        $('#card-image img').attr('alt','illustration of the ' + title);
-        if (effect === "none") {
-            $('#card-effect-icon').text('');
-            $('#card-effect').text('');
-        } else {
-            $('#card-effect-icon').text('');
-            $('#card-effect').text('Effect: ' + effect);
-        }
-        return true;
-    }
-    // Hides card overlay
-    function hideCard() {
-        $('#card-container').css('opacity',0);
-        setTimeout(function(){
-           $('#card-container').css('display','none');
-            return true;
-        }, 0200);
-    }
-    // Displays card overlay
-    function showCard() {
-        $('#card-container').css('display','block');
-       setTimeout(function(){
-            $('#card-container').css('opacity',1);
-            return true;
-        }, 0200);
-    }
-    
-    $('.item-small').click(function(){
-        console.log("this ran");
-        var id = $(this).attr('id');
-        console.log(id);
-        loadCardInfo(id);
-        showCard();
-    });
 }
