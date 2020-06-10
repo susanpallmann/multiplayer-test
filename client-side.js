@@ -331,3 +331,15 @@ function initiateProfile(key) {
         }
     });
 }
+function updateItem(key, player, id, bool) {
+    var playerRef = firebase.database().ref('games/' + key + '/' + player + 'items');
+    if (bool) {
+        var values = {};
+        values[id] = id;
+        var newChildRef = playerRef.set(values);
+    } else {
+        var values = {};
+        values[id] = null;
+        var newChildRef = playerRef.set(values);
+    }
+}
