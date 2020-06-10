@@ -44,6 +44,9 @@ h3 {
 .button.short {
   width: auto;
 }
+body div .button.back {
+  background-color: #645D5D;
+}
 .button:hover {
   background-color: #8A548D;
 }
@@ -139,28 +142,28 @@ body div #avatar-selector .avatar.unavailable {
   background-color: #443B3B;
   opacity: 0.5em;
 }
-body[color="purple"] #avatar-selector .avatar, body[color="purple"] #avatar-selector .avatar.unavailable.selected {
+body[color="purple"] #avatar-selector .avatar, body[color="purple"] #avatar-selector .avatar.unavailable.selected, body[color="purple"] .button {
   background-color: #CB91FF;
 }
-body[color="blue"] #avatar-selector .avatar, body[color="blue"] #avatar-selector .avatar.unavailable.selected {
+body[color="blue"] #avatar-selector .avatar, body[color="blue"] #avatar-selector .avatar.unavailable.selected, body[color="blue"] .button {
   background-color: #87D8E5;
 }
-body[color="green"] #avatar-selector .avatar, body[color="green"] #avatar-selector .avatar.unavailable.selected {
+body[color="green"] #avatar-selector .avatar, body[color="green"] #avatar-selector .avatar.unavailable.selected, body[color="green"] .button {
   background-color: #88E587;
 }
-body[color="yellow"] #avatar-selector .avatar, body[color="yellow"] #avatar-selector .avatar.unavailable.selected {
+body[color="yellow"] #avatar-selector .avatar, body[color="yellow"] #avatar-selector .avatar.unavailable.selected, body[color="yellow"] .button {
   background-color: #FFD088;
 }
-body[color="red"] #avatar-selector .avatar, body[color="red"] #avatar-selector .avatar.unavailable.selected {
+body[color="red"] #avatar-selector .avatar, body[color="red"] #avatar-selector .avatar.unavailable.selected, body[color="red"] .button {
   background-color: #FF7A7A;
 }
-body[color="pink"] #avatar-selector .avatar, body[color="pink"] #avatar-selector .avatar.unavailable.selected {
+body[color="pink"] #avatar-selector .avatar, body[color="pink"] #avatar-selector .avatar.unavailable.selected, body[color="pink"] .button {
   background-color: #FFA7D3;
 }
-body[color="white"] #avatar-selector .avatar, body[color="white"] #avatar-selector .avatar.unavailable.selected {
+body[color="white"] #avatar-selector .avatar, body[color="white"] #avatar-selector .avatar.unavailable.selected, body[color="white"] .button {
   background-color: #FFF3E1;
 }
-body[color="teal"] #avatar-selector .avatar, body[color="teal"] #avatar-selector .avatar.unavailable.selected {
+body[color="teal"] #avatar-selector .avatar, body[color="teal"] #avatar-selector .avatar.unavailable.selected, body[color="teal"] .button {
   background-color: #87E9CC;
 }
 #vip-only {
