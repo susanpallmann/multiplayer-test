@@ -278,3 +278,11 @@ function loadCardInfo(id) {
         $('#card-effect').text('Effect: ' + effect);
     }
 }
+function hideCard() {
+    $('#card-container').css('opacity',0);
+    return true;
+}
+function showCard() {
+    $('#card-container').css('opacity',1);
+    return true;
+}
