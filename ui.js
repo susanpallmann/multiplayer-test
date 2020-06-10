@@ -295,7 +295,6 @@ function deckSetup(key) {
     for (i=0; i<playDeck.length; i++) {
         updateItem(key, 'deck', i, true);
     }
-    console.log(playDeck);
 }
 /* Randomize array in-place using Durstenfeld shuffle algorithm */
 
