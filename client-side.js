@@ -67,11 +67,6 @@ $(document).ready(function() {
         hideCard();
     });
 });
-$(document).on('click', '.item-small', function(){
-    var id = $(this).attr('id');
-    loadCardInfo(id);
-    showCard();
-});
 function trackGamePhase(key) {
     var phase = firebase.database().ref('games/' + key + '/phase');
     phase.on('value', function(snapshot) {
@@ -364,3 +359,9 @@ function updateItem(key, player, id, bool) {
         var newChildRef = playerRef.set(values);
     }
 }
+$(document).on('click', '.item-small', function(){
+    console.log("this ran at all");
+    var id = $(this).attr('id');
+    loadCardInfo(id);
+    showCard();
+});
