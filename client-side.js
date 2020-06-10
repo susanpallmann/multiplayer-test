@@ -349,8 +349,8 @@ function initiateProfile(key) {
     });
 }
 // Function to edit inventory items (not equipped items for a specific player)
-function updateItem(key, player, id, bool) {
-    var playerRef = firebase.database().ref('games/' + key + '/' + player + '/items');
+function updateItem(key, location, id, bool) {
+    var playerRef = firebase.database().ref('games/' + key + '/' + location);
     // A boolean is passed in to determine if adding or removing the specified item (true=add, false=delete)
     if (bool) {
         var values = {};
