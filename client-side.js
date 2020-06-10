@@ -66,6 +66,12 @@ $(document).ready(function() {
     $('#card-action-back').click(function(){
         hideCard();
     });
+    $('.item-small').click(function(){
+        console.log("this ran at all 2");
+        var id = parseInt($(this).attr('id'));
+        loadCardInfo(id);
+        showCard();
+    });
 });
 function trackGamePhase(key) {
     var phase = firebase.database().ref('games/' + key + '/phase');
