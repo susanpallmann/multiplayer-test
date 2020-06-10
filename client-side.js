@@ -140,6 +140,7 @@ function sendPlayerValues(key, user, playerKey, playerNum, playerColor, chosenAv
         username: user,
         avatar: chosenAvatar,
         color: playerColor,
+        gold: 5,
     };
     $('#' + chosenAvatar).addClass('selected');
     $('header').attr('color', playerColor);
