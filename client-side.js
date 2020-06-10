@@ -260,7 +260,11 @@ function loadCardInfo(id) {
     var title = myCard.title;
     $('#card-title').text(title);
     $('#card-desc').text(desc);
-    $('#card-score').text(score);
+    if (score > 0) {
+        $('#card-score').text('+' + score);
+    } else {
+        $('#card-score').text(score);
+    }
     $('#card-sell').text(sell + ' gold');
     $('#card-image img').attr('src','images/cards/' + id + '.png');
     $('#card-image img').attr('alt','illustration of the ' + title);
