@@ -289,13 +289,13 @@ function deckSetup(key) {
     for (i=0; i<deck.length; i++) {
         var thisObject = deck[i];
         thisObject.id = i;
-        console.log(thisObject);
         playDeck.push(thisObject);
     }
-    var shuffledArray = shuffleArray(playDeck);
+    playDeck = shuffleArray(playDeck);
     for (i=0; i<playDeck.length; i++) {
         updateItem(key, 'deck', i, true);
     }
+    console.log(playDeck);
 }
 /* Randomize array in-place using Durstenfeld shuffle algorithm */
 
