@@ -66,6 +66,11 @@ $(document).ready(function() {
     $('#card-action-back').click(function() {
         hideCard();
     });
+    $('.item-small').click(function() {
+        var id = $(this).attr('id');
+        loadCardInfo(id);
+        showCard();
+    });
 });
 function trackGamePhase(key) {
     var phase = firebase.database().ref('games/' + key + '/phase');
@@ -208,6 +213,7 @@ function joinGame(key, user, num) {
     }
     chooseRandomAvatar(chosenAvatar);
 }
+// Updates the playerCount in the database
 function changePlayerCount(key, playerNum) {
     var values = {
         playerCount: playerNum
@@ -215,6 +221,7 @@ function changePlayerCount(key, playerNum) {
     var ref = firebase.database().ref('games/' + key);
     var newChildRef = ref.update(values);
 }
+// Updates the visual representation of which avatars are available
 function displayAvatar(avatar, bool) {
     console.log("this ran");
     var name = avatar;
@@ -225,6 +232,7 @@ function displayAvatar(avatar, bool) {
         $('#' + name).addClass('unavailable');
     }
 }
+// Listens for updates to which avatars are taken and sends an update to the visual handler
 function checkAvatars(key) {
     var avatar1 = firebase.database().ref('games/' + key + '/avatars/avatar1');
     avatar1.on('value', function(snapshot) {
@@ -259,6 +267,7 @@ function checkAvatars(key) {
         displayAvatar('avatar8', snapshot.val());
     });
 }
+// Populates the card with the information corresponding to that specific ID
 function loadCardInfo(id) {
     var myCard = deck[id];
     var sell = myCard.val;
@@ -283,8 +292,9 @@ function loadCardInfo(id) {
         $('#card-effect-icon').text('');
         $('#card-effect').text('Effect: ' + effect);
     }
+    return true;
 }
-
+// Listener for changes in a player's inventory, calls the visual updates needed to reflect the change
 function updateInventory(key) {
     var playerKey = $('body').attr('player');
     var ref = firebase.database().ref('games/' + key + '/' + playerKey + '/items');
@@ -295,13 +305,16 @@ function updateInventory(key) {
         removeSmallCard(data.key);
     });
 }
+// Visually adds a small card and populates ID/image information
 function loadSmallCard(id,location) {
     location.append('<div class="item-small" id="' + id + '"></div>');
     $('#' + id).css('background-image','url("images/cards/' + id + '.png")');
 }
+// Visually removes a small card by ID
 function removeSmallCard(id) {
     $('#' + id).remove();
 }
+// Hides card overlay
 function hideCard() {
     $('#card-container').css('opacity',0);
     setTimeout(function(){
@@ -309,6 +322,7 @@ function hideCard() {
         return true;
     }, 0200);
 }
+// Displays card overlay
 function showCard() {
     $('#card-container').css('display','block');
     setTimeout(function(){
@@ -318,21 +332,28 @@ function showCard() {
 }
 // Starts some listeners for the inventory screen.
 function initiateProfile(key) {
+    // Getting local storage of player's key
     var playerKey = $('body').attr('player');
+    // Grabs a snapshot of that player's directory under the game database
     var ref = firebase.database().ref('games/' + key + '/' + playerKey);
     ref.on('value', function(snapshot) {
         if (snapshot.exists()) {
+            // Player's snapshot directory
             var directory = snapshot;
             var gold = directory.child("gold").val();
+            // Updates amount of gold
             $('#gold-amount').text(gold);
+            // Updates avatar
             var avatar = directory.child("avatar").val();
             $('#full-avatar img').attr('src','images/full-body/' + avatar + '.png');
             $('#full-avatar img').attr('alt','illustration of your player avatar');
         }
     });
 }
+// Function to edit inventory items (not equipped items for a specific player)
 function updateItem(key, player, id, bool) {
     var playerRef = firebase.database().ref('games/' + key + '/' + player + 'items');
+    // A boolean is passed in to determine if adding or removing the specified item (true=add, false=delete)
     if (bool) {
         var values = {};
         values[id] = id;
