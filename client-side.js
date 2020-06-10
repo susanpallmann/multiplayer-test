@@ -306,6 +306,8 @@ function initiateProfile(key) {
             var gold = directory.child("gold").val();
             $('#gold-amount').text(gold);
             var avatar = directory.child("avatar").val();
+            $('#full-avatar img').attr('src','images/full-body/' + avatar + '.png');
+            $('#full-avatar img').attr('alt','illustration of your player avatar');
         }
     });
 }
