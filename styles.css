@@ -416,3 +416,9 @@ input[type="number"]:active {
   background-repeat: no-repeat;
   background-position-y: center;
 }
+#full-avatar {
+  max-width: 200px;
+}
+#full avatar {
+  width: 100%;
+}
