@@ -345,5 +345,5 @@ input[type="number"]:active {
 }
 .avatar[avatar="avatar1"] {
   background-image: url('images/avatars/avatar1.png');
-  background-width: 100%;
+  background-size: 100%;
 }
