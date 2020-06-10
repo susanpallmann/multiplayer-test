@@ -39,13 +39,18 @@ h3 {
   display: inline-block;
   margin: 0.3em 0px;
   width: 100%;
-  max-width: 250px;
+  max-width: 300px;
+  box-sizing: border-box;
+  text-align: center;
 }
 .button.short {
   width: auto;
 }
 body div .button.back {
   background-color: #645D5D;
+}
+body div .button.back:hover {
+  background-color: #807575;
 }
 .button:hover {
   background-color: #8A548D;
@@ -145,50 +150,82 @@ body div #avatar-selector .avatar.unavailable {
 body[color="purple"] #avatar-selector .avatar, body[color="purple"] #avatar-selector .avatar.unavailable.selected {
   background-color: #CB91FF;
 }
-body[color="purple"] .button {
+body[color="purple"] .button, header[color="purple"] {
   background-color: #844CAF;
+  color: #ffffff;
+}
+body[color="purple"] .button:hover {
+  background-color: #6A3097;
 }
 body[color="blue"] #avatar-selector .avatar, body[color="blue"] #avatar-selector .avatar.unavailable.selected {
   background-color: #87D8E5;
 }
-body[color="blue"] .button {
+body[color="blue"] .button, header[color="blue"] {
   background-color: #3078A8;
+  color: #ffffff;
+}
+body[color="blue"] .button:hover {
+  background-color: #1A5F8D;
 }
 body[color="green"] #avatar-selector .avatar, body[color="green"] #avatar-selector .avatar.unavailable.selected {
   background-color: #88E587;
 }
-body[color="green"] .button {
+body[color="green"] .button, header[color="green"] {
   background-color: #499848;
+  color: #ffffff;
+}
+body[color="green"] .button:hover {
+  background-color: #2E772D;
 }
 body[color="yellow"] #avatar-selector .avatar, body[color="yellow"] #avatar-selector .avatar.unavailable.selected {
   background-color: #FFD088;
 }
-body[color="yellow"] .button {
+body[color="yellow"] .button, header[color="yellow"] {
   background-color: #B88536;
+  color: #ffffff;
+}
+body[color="yellow"] .button:hover {
+  background-color: #9D6919;
 }
 body[color="red"] #avatar-selector .avatar, body[color="red"] #avatar-selector .avatar.unavailable.selected {
   background-color: #FF7A7A;
 }
-body[color="red"] .button {
+body[color="red"] .button, header[color="red"] {
   background-color: #CE4A4A;
+  color: #ffffff;
+}
+body[color="red"] .button:hover {
+  background-color: #B53535;
 }
 body[color="pink"] #avatar-selector .avatar, body[color="pink"] #avatar-selector .avatar.unavailable.selected {
   background-color: #FFA7D3;
 }
-body[color="pink"] .button {
+body[color="pink"] .button, header[color="pink"] {
   background-color: #E2579D;
+  color: #ffffff;
+}
+body[color="pink"] .button:hover {
+  background-color: #C93881;
 }
 body[color="white"] #avatar-selector .avatar, body[color="white"] #avatar-selector .avatar.unavailable.selected {
   background-color: #FFF3E1;
 }
-body[color="white"] .button {
+body[color="white"] .button, header[color="white"] {
   background-color: #B9A88E;
+  color: #ffffff;
+}
+body[color="white"] .button:hover {
+  background-color: #9D8156;
 }
 body[color="teal"] #avatar-selector .avatar, body[color="teal"] #avatar-selector .avatar.unavailable.selected {
   background-color: #87E9CC;
 }
-body[color="teal"] .button {
+body[color="teal"] .button, header[color="teal"] {
   background-color: #238B8B;
+  color: #ffffff;
+}
+body[color="teal"] .button:hover {
+  background-color: #067171;
 }
 #vip-only {
   display: none;
