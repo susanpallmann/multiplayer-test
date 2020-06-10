@@ -296,3 +296,16 @@ function showCard() {
         return true;
     }, 0200);
 }
+// Starts some listeners for the inventory screen.
+function initiateProfile(key) {
+    var playerKey = $('body').attr('player');
+    var ref = firebase.database().ref('games/' + key + '/' + playerKey);
+    ref.on('value', function(snapshot) {
+        if (snapshot.exists()) {
+            var directory = snapshot;
+            var gold = directory.child("gold").val();
+            $('#gold-amount').text(gold);
+            var avatar = directory.child("avatar").val();
+        }
+    });
+}
