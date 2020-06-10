@@ -361,7 +361,7 @@ function updateItem(key, player, id, bool) {
 }
 $(document).on('click', '.item-small', function(){
     console.log("this ran at all");
-    var id = $(this).attr('id');
+    var id = parseInt($(this).attr('id'));
     loadCardInfo(id);
     showCard();
 });
