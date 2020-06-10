@@ -418,7 +418,12 @@ input[type="number"]:active {
 }
 #full-avatar {
   max-width: 200px;
+  margin: auto;
 }
 #full-avatar img {
   width: 100%;
+}
+#inventory {
+  max-width: 600px;
+  margin: auto;
 }
