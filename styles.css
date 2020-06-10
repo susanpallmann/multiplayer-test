@@ -346,32 +346,40 @@ input[type="number"]:active {
 .avatar[avatar="avatar1"], [avatar="avatar1"] .avatar {
   background-image: url('images/avatars/avatar1.png');
   background-size: contain;
+  background-repeat: no-repeat;
 }
 .avatar[avatar="avatar2"], [avatar="avatar2"] .avatar {
   background-image: url('images/avatars/avatar2.png');
   background-size: contain;
+  background-repeat: no-repeat;
 }
 .avatar[avatar="avatar3"], [avatar="avatar3"] .avatar {
   background-image: url('images/avatars/avatar3.png');
   background-size: contain;
+  background-repeat: no-repeat;
 }
 .avatar[avatar="avatar4"], [avatar="avatar4"] .avatar {
   background-image: url('images/avatars/avatar4.png');
   background-size: contain;
+  background-repeat: no-repeat;
 }
 .avatar[avatar="avatar5"], [avatar="avatar5"] .avatar {
   background-image: url('images/avatars/avatar5.png');
   background-size: contain;
+  background-repeat: no-repeat;
 }
 .avatar[avatar="avatar6"], [avatar="avatar6"] .avatar {
   background-image: url('images/avatars/avatar6.png');
   background-size: contain;
+  background-repeat: no-repeat;
 }
 .avatar[avatar="avatar7"], [avatar="avatar7"] .avatar {
   background-image: url('images/avatars/avatar7.png');
   background-size: contain;
+  background-repeat: no-repeat;
 }
 .avatar[avatar="avatar8"], [avatar="avatar8"] .avatar {
   background-image: url('images/avatars/avatar8.png');
   background-size: contain;
+  background-repeat: no-repeat;
 }
