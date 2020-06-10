@@ -427,12 +427,6 @@ input[type="number"]:active {
   max-width: 600px;
   margin: auto;
 }
-#items #card-action-unequip {
-  display: none;
-}
-#equipment #card-action-equip {
-  display: none;
-}
 #card[type="card"] #card-action-equip {
   display: none;
 }
