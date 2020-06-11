@@ -135,7 +135,7 @@ function lobbySetup(key) {
     var avatarsRef = firebase.database().ref('games/' + key + '/avatars');
     var avatarsChildRef = avatarsRef.set(avatarValues);
     var currentPlayer = firebase.database().ref('games/' + key);
-    var updateCurrent = currentPlayer.update({currentplayer: 'player1'});
+    var updateCurrent = currentPlayer.update({currentPlayer: 'player1'});
     trackGamePhase(key);
     updateNumPlayers(key);
     updatePlayers(key);
