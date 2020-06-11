@@ -442,3 +442,9 @@ input[type="number"]:active {
 #card[type="item"] #card-action-use-monster {
   display: none;
 }
+#card[place="items"] #card-action-unequip {
+  display: none;
+}
+#card[place="equipped"] #card-action-equip {
+  display: none;
+}
