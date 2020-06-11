@@ -88,7 +88,6 @@ function verifyRoomCode(key) {
         } else {
             // Calls function lobbySetup
             lobbySetup(key);
-            console.log("We will set up the game by calling a function from here.");
             return false;
         }
     });
@@ -276,7 +275,6 @@ function runTutorial() {
     // Then we need to tell the database what capabilities each user's inventory has right now (system TBD).
 }
 function shuffleArray(array) {
-    console.log('shuffle ran');
     for (var i = array.length - 1; i > 0; i--) {
         var j = Math.floor(Math.random() * (i + 1));
         var temp = array[i];
@@ -296,8 +294,6 @@ function deckSetup(key) {
         updateItem(key, 'deck', i, true);
     }
 }
-/* Randomize array in-place using Durstenfeld shuffle algorithm */
-
 function updateItem(key, path, id, bool) {
     var playerRef = firebase.database().ref('games/' + key + '/' + path);
     // A boolean is passed in to determine if adding or removing the specified item (true=add, false=delete)
