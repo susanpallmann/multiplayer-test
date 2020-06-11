@@ -371,7 +371,7 @@ function updateItem(key, path, id, bool) {
 }
 $(document).on('click', '.item-small', function(){
     var id = parseInt($(this).attr('id'));
-    if ($(this).parent('#items')) {
+    if ($(this).parent() === $('#items')) {
         console.log("this is in items");
     } else {
         console.log("this is equipped");
