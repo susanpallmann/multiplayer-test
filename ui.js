@@ -139,6 +139,7 @@ function lobbySetup(key) {
     updateNumPlayers(key);
     updatePlayers(key);
     deckSetup(key);
+    getCurrentPlayer(key);
 }
 
 function updatePlayers(key) {
@@ -306,4 +307,16 @@ function updateItem(key, path, id, bool) {
         values[id] = null;
         var newChildRef = playerRef.update(values);
     }
+}
+function getCurrentPlayer(key) {
+    var ref = firebase.database().ref('games/' + key + '/currentPlayer');
+    ref.on('value', function(snapshot) {
+        if (snapshot.exists()) {
+            var user = snapshot.val();
+            updateCurrentPlayer(user);
+        }
+    });
+}   
+function updateCurrentPlayer(user) {   
+    $('.current-player').text(user);
 }
