@@ -372,9 +372,9 @@ function updateItem(key, path, id, bool) {
 $(document).on('click', '.item-small', function(){
     var id = parseInt($(this).attr('id'));
     if ($(this).parent('#items').length) {
-        console.log("this is in items");
+        $('#card').attr('place', 'items');
     } else {
-        console.log("this is equipped");
+        $('#card').attr('place', 'equipped');
     }
     loadCardInfo(id);
     showCard();
