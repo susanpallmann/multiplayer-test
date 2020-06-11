@@ -379,3 +379,4 @@ $(document).on('click', '.item-small', function(){
     loadCardInfo(id);
     showCard();
 });
+// Work
