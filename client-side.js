@@ -154,6 +154,7 @@ function sendPlayerValues(key, user, playerKey, playerNum, playerColor, chosenAv
     updateInventory(key);
     updateEquipment(key);
     initiateProfile(key);
+    getCurrentPlayer(key);
 }
 function joinGame(key, user, num) {
     var playerNum = num + 1;
@@ -379,4 +380,15 @@ $(document).on('click', '.item-small', function(){
     loadCardInfo(id);
     showCard();
 });
-// Work
+function getCurrentPlayer(key) {
+    var ref = firebase.database().ref('games/' + key + '/currentPlayer');
+    ref.on('value', function(snapshot) {
+        if (snapshot.exists()) {
+            var user = snapshot.val();
+            updateCurrentPlayer(user);
+        }
+    });
+}   
+function updateCurrentPlayer(user) {   
+    $('.current-player').text(user);
+}
