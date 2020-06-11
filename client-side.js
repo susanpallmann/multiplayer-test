@@ -390,5 +390,7 @@ function getCurrentPlayer(key) {
     });
 }   
 function updateCurrentPlayer(user) {   
-    $('.current-player').text(user);
+    $('.current-player').each(function(){
+        $(this).text(user);
+    });
 }
