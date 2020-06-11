@@ -314,10 +314,13 @@ function getCurrentPlayer(key) {
     ref.on('value', function(snapshot) {
         if (snapshot.exists()) {
             var user = snapshot.val();
+            console.log
             updateCurrentPlayer(user);
         }
     });
 }   
 function updateCurrentPlayer(user) {   
-    $('.current-player').text(user);
+    $('.current-player').each(function(){
+        $(this).text(user);
+    });
 }
