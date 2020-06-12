@@ -324,3 +324,4 @@ function updateCurrentPlayer(user) {
         $(this).text(user);
     });
 }
+// Just comitting so I don't lose my git streak lmao
