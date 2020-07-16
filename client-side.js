@@ -148,7 +148,7 @@ function sendPlayerValues(key, user, playerKey, playerNum, playerColor, chosenAv
     var avatarValues = {};
     avatarValues[chosenAvatar] = false;
     var avatarChildRef = avatarUpdate.update(avatarValues);
-    if (playerNum = 1) {
+    if (playerNum === 1) {
         var newRef = firebase.database().ref('games/' + key);
         var updateCurrent = newRef.update({currentPlayer: user});
     }
