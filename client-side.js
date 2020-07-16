@@ -164,7 +164,6 @@ function sendPlayerValues(key, user, playerKey, playerNum, playerColor, chosenAv
 function joinGame(key, user, num) {
     var playerNum = num + 1;
     var playerKey = "player" + playerNum;
-    changePlayerCount(key, playerNum);
     $('body').attr('player', playerKey);
     $('body').attr('room-key', key);
     var playerColor;
@@ -212,6 +211,7 @@ function joinGame(key, user, num) {
         });
     }
     chooseRandomAvatar(chosenAvatar);
+    changePlayerCount(key, playerNum);
 }
 // Updates the playerCount in the database
 function changePlayerCount(key, playerNum) {
