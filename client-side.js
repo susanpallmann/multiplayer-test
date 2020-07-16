@@ -153,6 +153,7 @@ function sendPlayerValues(key, user, playerKey, playerNum, playerColor, chosenAv
         var updateCurrent = newRef.update({currentPlayer: user});
     }
     changePlayerCount(key, playerNum);
+    console.log("this is running in which order?");
     trackGamePhase(key);
     checkAvatars(key);
     updateInventory(key);
