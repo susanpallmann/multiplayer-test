@@ -84,7 +84,6 @@ function getNumPlayers(key, user) {
   var playerCount = firebase.database().ref('games/' + key + '/playerCount');
   playerCount.once('value', function(snapshot) {
       numPlayers = snapshot.val();
-      updateNumPlayers(key);
       joinGame(key, user, numPlayers);
   });
 }
@@ -215,6 +214,8 @@ function joinGame(key, user, num) {
 }
 // Updates the playerCount in the database
 function changePlayerCount(key, playerNum) {
+    console.log("this ran");
+    console.log(playerNum);
     var values = {
         playerCount: playerNum
     };
