@@ -424,7 +424,7 @@ input[type="number"]:active {
   width: 100%;
 }
 #inventory {
-  max-width: 600px;
+  max-width: 300px;
   margin: auto;
 }
 #card[type="card"] #card-action-equip {
