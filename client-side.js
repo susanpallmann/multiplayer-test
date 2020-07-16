@@ -155,6 +155,7 @@ function sendPlayerValues(key, user, playerKey, playerNum, playerColor, chosenAv
     trackGamePhase(key);
     checkAvatars(key);
     updateInventory(key);
+    updateNumPlayers(key);
     updateEquipment(key);
     initiateProfile(key);
     getCurrentPlayer(key);
